@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teacher Assignment | Sirajudullah Govt. Degree College</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      width: 500px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 20px 35px;
+    }
+
+    .container img {
+      margin-bottom: 20px;
+    }
+
+    .dropdown {
+      margin-bottom: 10px;
+    }
+
+    .dropdown label {
+      font-weight: bold;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    .dropdown select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background: #fff;
+      font-size: 14px;
+    }
+
+    .dropdown input {
+      width: 95%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background: #fff;
+      font-size: 14px;
+    }
+
+    textarea {
+      width: 95%;
+      height: 100px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 10px;
+      font-size: 14px;
+      resize: none;
+    }
+
+    .icon-buttons {
+      display: flex;
+      justify-content: flex-start;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .icon-buttons button {
+      border: none;
+      background: #c7c7c7;
+      border-radius: 18px;
+      padding: 10px;
+      cursor: pointer;
+      display: flex;
+      gap: 10px;
+      font-size: medium;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 550;
+      align-items: center;
+    }
+
+    .icon-buttons button:hover {
+      background: #858585;
+      transition: background-color 0.3s ease;
+    }
+
+    .icon-buttons button img {
+      width: 20px;
+      height: 20px;
+      margin-top: 16px;
+    }
+
+    .file-input {
+      display: none;
+    }
+
+    #uploaded-file-name {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .post-button {
+      width: 100%;
+      padding: 10px 15px;
+      background: #307ffe;
+      color: #fff;
+      font-weight: 550;
+      font-size: 17px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    .post-button:hover {
+      background: #103fa4;
+      color: white;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <script type="module">
+    // Import Firebase libraries
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+    import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
+  
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyBP1ixWzRGPvJS_IHMZJq4gcxz3AGOcCrs",
+      authDomain: "sgdc-assign-t-s.firebaseapp.com",
+      databaseURL: "https://sgdc-assign-t-s-default-rtdb.firebaseio.com",
+      projectId: "sgdc-assign-t-s",
+      storageBucket: "sgdc-assign-t-s.appspot.com",
+      messagingSenderId: "460203134994",
+      appId: "1:460203134994:web:d1644e5ca140516db048cb"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+  
+    document.addEventListener('DOMContentLoaded', function() {
+      // Fix: Correct button click handling
+      document.getElementById('post-sut').addEventListener('click', postAssignment);
+    });
+  
+    // Function to post an assignment
+    function postAssignment() {
+      const teacher = document.getElementById("teacher-select").value;
+      const group = document.getElementById("audience-select").value;  // Changed from "group-select"
+      const classSelected = document.getElementById("class-select").value;
+      const title = document.getElementById("title-input").value.trim();
+      const announcement = document.getElementById("announcement-text").value.trim();
+      const fileLink = document.getElementById("file-link").value.trim();
+  
+      if (!teacher || !group || !classSelected || !title || !fileLink) {
+        alert("Please fill in all required fields.");
+        return;
+      }
+  
+      const assignment = {
+        teacher,
+        group,
+        class: classSelected,
+        title,
+        announcement: announcement || "No additional announcement.",
+        uploadedFile: fileLink,
+        date: new Date().toLocaleDateString()
+      };
+  
+      const assignmentsRef = ref(database, "assignments");
+      push(assignmentsRef, assignment)
+        .then(() => alert("Assignment posted successfully!"))
+        .catch((error) => console.error("Error posting assignment:", error));
+    }
+  </script>
+  
+  <div class="container">
+    <a href="./../Poartal-Acadmic copy.html" target="_blank"><img src="../../Assets/back.png" width="30px" height="30px" alt="Back"></a>
+    
+    <div class="dropdown">
+      <label for="teacher-select">Select Teacher:</label>
+      <select id="teacher-select">
+        <option value="" disabled selected>Select an option</option>
+        <option value="Math Teacher">Math Teacher</option>
+        <option value="Physics Teacher">Physics Teacher</option>
+        <option value="Chemistry Teacher">Chemistry Teacher</option>
+        <option value="Computer Teacher">Computer Teacher</option>
+        <option value="English Teacher">English Teacher</option>
+        <option value="Urdu Teacher">Urdu Teacher</option>
+        <option value="Islamiyat Teacher">Islamiyat Teacher</option>
+        <option value="Biology Teacher">Biology Teacher</option>
+      </select>
+    </div>
+  
+    <div class="dropdown">
+      <label for="audience-select">Select Group:</label>
+      <select id="audience-select">
+        <option value="" disabled selected>Select an option</option>
+        <option value="All students">All students</option>
+        <option value="Pre-Engineering">Pre-Engineering</option>
+        <option value="Pre-Medical">Pre-Medical</option>
+        <option value="Computer Science">Computer Science</option>
+        <option value="Commerce">Commerce</option>
+      </select>
+    </div>
+  
+    <div class="dropdown">
+      <label for="class-select">Select Class:</label>
+      <select id="class-select">
+        <option value="" disabled selected>Select an option</option>
+        <option value="1st Year Students">1st Year Students</option>
+        <option value="2nd Year Students">2nd Year Students</option>
+      </select>
+    </div>
+  
+    <div class="dropdown">
+      <label for="title-input">Title:</label>
+      <input id="title-input" type="text" placeholder="Write your title here">
+    </div>
+  
+    <div class="dropdown">
+      <label for="announcement-text">Announcement:</label>
+      <textarea id="announcement-text" placeholder="Announce something to your class"></textarea>
+    </div>
+  
+    <div class="dropdown">
+      <label for="file-link">File Link:</label>
+      <input type="url" id="file-link" placeholder="Enter file link (Google Drive, etc.)"><br>
+    </div>
+  
+    <button class="post-button" type="submit" id="post-sut">Post Tasks</button>
+  </div>
+  
+
+</body>
+
+</html>

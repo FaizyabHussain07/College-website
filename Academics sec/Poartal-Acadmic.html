@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acadimics | Sirajudullah Govt. Degree College</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #45a049;
+        }
+
+        .header {
+            background-color: rgb(250, 250, 250);
+            padding: 20px 0;
+            display: flex;
+            position: fixed;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-menu a:hover {
+            color: #035225;
+            padding-top: 14px;
+            border-top: 1px solid #0a9111;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            gap: 470px;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin-left: 30px;
+        }
+
+        .nav-menu a {
+            color: #4CAF50;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #035225;
+        }
+
+        .hamburger {
+            display: none;
+            margin-right: 0;
+            cursor: pointer;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            transition: all 0.3s ease-in-out;
+            background-color: white;
+        }
+
+        .auth-buttons {
+            margin-left: 50px;
+            margin-right: 60px;
+            /* Space between buttons */
+        }
+
+        .cta-button {
+            padding-left: 30px;
+            padding-right: 30px;
+            padding-top: 10px;
+            padding-bottom: 9px;
+            font-family: sans-serif;
+            font-weight: bold;
+            color: #e0e0e0;
+            background-color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #0f7a14;
+            /* Darker shade on hover */
+        }
+
+        .OR p {
+            padding-top: 15px;
+            color: #666;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 600;
+        }
+
+
+        /* main content startet */
+        .container-mis-vis {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+
+
+        .head-form-text {
+            text-align: center;
+            margin-top: 70px;
+            margin-left: 10px;
+            padding-bottom: 20px;
+            font-size: xx-large;
+        }
+
+
+        .mission-vision {
+            padding: 60px 0;
+            background-color: #f0f4f8;
+        }
+
+        .section-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .mission-box,
+        .vision-box {
+            background-color: #509768;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            border-left: 6px solid #09bc48;
+        }
+
+        .mission-box h2,
+        .vision-box h2 {
+            color: #eefbf3;
+            font-family: Arial, sans-serif;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .mission-box p,
+        .vision-box p {
+            color: #f1efef;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            line-height: 1.6;
+        }
+
+        .read-more-1 {
+            display: inline-block;
+            padding: 10px 25px;
+            margin-top: 23px;
+            background-color: var(--primary-color);
+            font-family: Arial, sans-serif;
+            font-weight: 500;
+            color: #2e2e2e;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .read-more-2 {
+            display: inline-block;
+            padding: 10px 25px;
+            margin-top: 23px;
+            background-color: var(--primary-color);
+            font-family: Arial, sans-serif;
+            font-weight: 500;
+            color: #2e2e2e;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .read-more-1:hover,
+        .read-more-2:hover,
+        .card-footer button:hover {
+            background-color: #0f7a14;
+            color: #e0e0e0;
+            transform: translateY(-2px);
+        }
+
+
+        .card-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+
+        .card {
+           
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            background: #509768;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-header {
+            padding: 20px;
+            font-size: 28px;
+            height: 70px;
+            color: white;
+            margin-bottom: 30px;
+            border-radius: 20px 20px 0px 0px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+.asign-quri{
+    display: flex;
+}
+
+        .card-footer {
+            margin: 0px;
+            display: flex;
+            padding: 20px;
+            text-align: center;
+            border-radius: 0px 0px 20px 20px;
+            border-top: 1px solid #ddd;
+        }
+
+        .card-footer button {
+            padding: 10px 20px;
+            font-size: 17px;
+
+            background-color: var(--primary-color);
+            color: rgb(0, 0, 0);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+
+
+        .exam-sec {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 70px 0;
+            background-color: #f0f4f8;
+        }
+
+        h1 {
+            font-size: 40px;
+            font-weight: bold;
+            color: #2d76d9;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .month {
+            background-color: #ffffff;
+            padding: 20px;
+            padding-right: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 520px;
+        }
+
+        .month-header {
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2d76d9;
+        }
+
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            text-align: center;
+            color: #333;
+        }
+
+        .day {
+            font-weight: bold;
+            background-color: #555;
+            padding: 8px 0;
+            align-items: center;
+            border-radius: 5px;
+            width: 55px;
+            margin-bottom: 10px;
+            color: #f7f7f7;
+        }
+
+        .date {
+            padding: 8px 5px;
+            border-radius: 5px;
+            width: 60px;
+            justify-content: center;
+            align-items: center;
+            background-color: #d4dce9;
+        }
+
+        .exam-date {
+            background-color: #f5900d;
+            color: #fdfdfd;
+            padding: 5px;
+            font-weight: bold;
+        }
+
+        .practical-date {
+            background-color: #1a811d;
+            color: #e4f5e5;
+            padding: 5.5px;
+            font-weight: bold;
+        }
+
+        small {
+            color: #fafcfa;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .month {
+                width: 100%;
+            }
+        }
+
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 0 0;
+        }
+
+        .image-logo {
+            border-radius: 67px;
+            margin-top: 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-evenly;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+
+        .footer-section p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        b {
+            color: #000;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            flex-direction: column;
+        }
+
+        .social-link-gap {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 20px;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .container-last {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer-bottom {
+            background-color: #222;
+            padding: 20px 0;
+            color: white;
+            display: flex;
+            justify-content: space-around;
+        }
+
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+                color: #000;
+            }
+
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .bar {
+                display: block;
+                width: 25px;
+                height: 3px;
+                margin: 5px auto;
+                transition: all 0.3s ease-in-out;
+                background-color: var(--secondary-color);
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                gap: 0;
+                flex-direction: column;
+                background-color: var(--primary-color);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                padding: 20px 0;
+            }
+
+            .nav-menu a {
+                color: #e0e0e0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 16px 0;
+            }
+
+
+            .OR p {
+                padding-top: 10px;
+                color: #666;
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: 600;
+            }
+
+            nav.nav-wrapper {
+                display: flex;
+                gap: 180px;
+                justify-content: space-between;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .section-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .flex-sec {
+                display: flex;
+                flex-direction: column-reverse;
+            }
+
+            .flex-img img {
+                width: 275px;
+                height: 100pxs;
+            }
+
+            .leader-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .leader-image {
+                max-width: 250px;
+                margin: 0 auto;
+            }
+
+            .footer-content {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .footer-section {
+                padding: 20px;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+    </style>
+    </head>
+
+    <body>
+
+        <header class="header">
+            <div class="container">
+                <nav class="nav-wrapper">
+                    <div>
+                        <a href="#" class="logo"><img style="color:#45a049;" src="../Assets/logo1.jpg" alt=""
+                                width="50px" height="50px"></a>
+                    </div>
+                    <div>
+                        <ul class="nav-menu">
+                            <li><a href="../Home/Portal-Home.html">Home</a></li>
+                            <li><a href="../About Us/Portal-About.html">About Us</a></li>
+                            <li><a href="../Academics sec/Poartal-Acadmic.html">Academics</a></li>
+                            <li><a href="../Admission open/Portal-Admis.html">Admissions</a></li>
+                            <li><a href="../Faculty/Portal-Faculty.html">Faculty</a></li>
+                            <li><a href="../Contact Us/Portal-Contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+
+
+                    <div class="hamburger">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+
+        <section class="mission-vision">
+            <div class="container-mis-vis">
+                <div class="head-form-text">
+                    <h3>Model Paper 2024</h3>
+                </div>
+                <div class="section-wrapper">
+                    <div class="mission-box">
+                        <h2>1st year Model Papers</h2>
+
+                        <a href="./model papers all field 2024/Computer-scen-mod copy.html" target="_blank"
+                            class="read-more-1">View Model Papers</a>
+                    </div>
+
+                    <div class="vision-box">
+                        <h2>2nd year Model Papers</h2>
+
+                        <a href="./model papers all field 2024/Computer-scen-mod copy.html" target="_blank"
+                            class="read-more-2">View Model Papers</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="mission-vision">
+            <div class="container-mis-vis">
+                <div class="head-form-text">
+                    <h3>Assignments And Chating Teachers</h3>
+                </div>
+                <div class="card-container">
+
+                    <!-- Card 1 -->
+                    <div class="card">
+                        <div class="card-header">1st Year Assignment</div>
+                        <div class="asign-quri">
+                            <div class="card-footer">
+                                <a href="./Assignment for students - Teacher/Student-assign1.html" target="_blank"
+                                    class="read-more-2">View Task</a>
+                            </div>
+                            <div class="card-footer">
+                                <a href="./qury pages of S or T/student-pg-q.html" target="_blank"
+                                    class="read-more-2">Chat with Teachers</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="card">
+                        <div class="card-header">2nd Year Assignment</div>
+                        <div class="asign-quri">
+                            <div class="card-footer">
+                                <a href="./Assignment for students - Teacher/Student-assign1.html" target="_blank"
+                                    class="read-more-2">View Task</a>
+                            </div>
+                            <div class="card-footer">
+                                <a href="./qury pages of S or T/student-pg-q.html" target="_blank"
+                                    class="read-more-2">Chat with Teachers</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="exam-sec">
+            <h1>Exam Schedule</h1>
+            <div class="container">
+                <!-- June - Theory Papers -->
+                <div class="month">
+                    <div class="month-header">Theory Papers - June 2025</div>
+                    <div class="calendar">
+                        <div class="day">Su</div>
+                        <div class="day">Mo</div>
+                        <div class="day">Tu</div>
+                        <div class="day">We</div>
+                        <div class="day">Th</div>
+                        <div class="day">Fr</div>
+                        <div class="day">Sa</div>
+
+                        <!-- Dates for June -->
+                        <div class="date">29</div>
+                        <div class="date">30</div>
+                        <div class="date exam-date">31<br><small>Computer</small></div>
+                        <div class="date">1</div>
+                        <div class="date">2</div>
+                        <div class="date">3</div>
+                        <div class="date exam-date">4<br><small>English</small></div>
+                        <div class="date">5</div>
+                        <div class="date">6</div>
+                        <div class="date">7</div>
+                        <div class="date exam-date">8<br><small>Cemistry</small></div>
+                        <div class="date">9</div>
+                        <div class="date">10</div>
+                        <div class="date">11</div>
+                        <div class="date">12</div>
+                        <div class="date exam-date">13<br><small>Physics</small></div>
+                        <div class="date">14</div>
+                        <div class="date">15</div>
+                        <div class="date">16</div>
+                        <div class="date exam-date">17<br><small>Urdu</small></div>
+                        <div class="date">18</div>
+                        <div class="date">19</div>
+                        <div class="date exam-date">20<br><small>Math</small></div>
+                        <div class="date">21</div>
+                        <div class="date">22</div>
+                        <div class="date">23</div>
+                        <div class="date exam-date">24<br><small>Islamiyat</small></div>
+                        <div class="date">25</div>
+                        <div class="date">26</div>
+                        <div class="date">27</div>
+                        <div class="date">28</div>
+                        <div class="date">29</div>
+                        <div class="date">30</div>
+                        <div class="date">1</div>
+                        <div class="date">2</div>
+                    </div>
+                </div>
+
+                <!-- July - Practical Papers -->
+                <div class="month">
+                    <div class="month-header">Practical Papers - July 2025</div>
+                    <div class="calendar">
+                        <div class="day">Su</div>
+                        <div class="day">Mo</div>
+                        <div class="day">Tu</div>
+                        <div class="day">We</div>
+                        <div class="day">Th</div>
+                        <div class="day">Fr</div>
+                        <div class="day">Sa</div>
+
+                        <!-- Dates for July -->
+                        <div class="date">26</div>
+                        <div class="date">27</div>
+                        <div class="date">28</div>
+                        <div class="date">29</div>
+                        <div class="date">30</div>
+                        <div class="date practical-date">1<br><small>Computer</small></div>
+                        <div class="date">2</div>
+                        <div class="date">3</div>
+                        <div class="date">4</div>
+                        <div class="date">5</div>
+                        <div class="date practical-date">6<br><small>Chemistry</small></div>
+                        <div class="date">7</div>
+                        <div class="date">8</div>
+                        <div class="date">9</div>
+                        <div class="date practical-date">10<br><small>Physics</small></div>
+                        <div class="date">11</div>
+                        <div class="date">12</div>
+                        <div class="date">13</div>
+                        <div class="date">14</div>
+                        <div class="date">15</div>
+                        <div class="date">16</div>
+                        <div class="date">17</div>
+                        <div class="date">18</div>
+                        <div class="date">19</div>
+                        <div class="date">20</div>
+                        <div class="date">21</div>
+                        <div class="date">22</div>
+                        <div class="date">23</div>
+                        <div class="date">24</div>
+                        <div class="date">25</div>
+                        <div class="date">26</div>
+                        <div class="date">27</div>
+                        <div class="date">28</div>
+                        <div class="date">29</div>
+                        <div class="date">30</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <footer class="footer">
+            <div class="footer-content container">
+                <img class="image-logo" style="color:#45a049;" src="../Assets/logo1.jpg" width="100px" height="100px">
+                <div class="footer-section">
+
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../About Us/Portal-About.html">About Us</a></li>
+                        <li><a href="../About Us/Portal-About.html">Events</a></li>
+                        <li><a href="../Contact Us/Portal-Contact.html">Meet to Principal</a></li>
+                        <li><a href="../Faculty/Portal-Faculty.html">Faculty Members</a></li>
+                        <li><a href="../Academics sec/Poartal-Acadmic.html">Academic Calendar</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Siraj-ud-Daulah Govt. Degree College (Morning) Road, Near
+                        City Center.</p>
+                    <p><i class="fas fa-phone"></i> +1234567890</p>
+                    <p><i class="fas fa-envelope"></i> info@sirajudullah.edu</p>
+
+                    <div class="social-links footer-section">
+                        <div class="social-link-gap">
+                            <div>
+                                <h3>Social Links</h3>
+                            </div>
+                            <div>
+                                <ul>
+                                    <a href="#"><i class="fab fa-facebook"></i></a>
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                    <a href="#"><i class="fab fa-instagram"></i></a>
+                                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="footer-section">
+                    <h3>Important Info</h3>
+                    <ul>
+
+                        <li><a href="../Sign Up/signup.html">Students Portal</a></li>
+                        <li><a href="../Sign Up/signup.html">Teachers Portal</a></li>
+                        <li><a href="../Admission open/Portal-Admis.html">Admission Process</a></li>
+                        <li><a href="../Admission open/Portal-Admis.html">Mark Sheet</a></li>
+                        <li><a href="../Academics sec/Poartal-Acadmic.html">Model Papers</a></li>
+                        <li><a href="../Academics sec/Poartal-Acadmic.html">Exam Schedule</a></li>
+                        <li><a href="../Admission open/Portal-Admis.html">Results</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container container-last">
+                    <div>
+                        <p>&copy; 2024 Siraj-ud-Daulah Govt. Degree College (Morning), All rights reserved. Developed by
+                            Faizyab Hussain.</p>
+                    </div>
+                    <div>
+                        <p>Privacy policy | Terms & Conditions</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script>
+            const hamburger = document.querySelector(".hamburger");
+            const navMenu = document.querySelector(".nav-menu");
+
+            hamburger.addEventListener("click", () => {
+                hamburger.classList.toggle("active");
+                navMenu.classList.toggle("active");
+            });
+
+            document.querySelectorAll(".nav-menu a").forEach(n => n.addEventListener("click", () => {
+                hamburger.classList.remove("active");
+                navMenu.classList.remove("active");
+            }));
+        </script>
+    </body>
+
+</html>

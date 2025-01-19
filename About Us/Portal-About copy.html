@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Sirajudullah Govt. Degree College</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+
+    <style>
+        body {
+            background: #e5e4e4;
+        }
+
+        .nav-menu a:hover {
+            color: #035225;
+            padding-top: 14px;
+            border-top: 1px solid #0a9111;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #45a049;
+        }
+
+        .header {
+            background-color: rgb(250, 250, 250);
+            padding: 20px 0;
+            position: fixed;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin-left: 30px;
+        }
+
+        .nav-menu a {
+            color: #4CAF50;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #035225;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            transition: all 0.3s ease-in-out;
+            background-color: white;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 7px;
+            /* Space between buttons */
+        }
+
+        .cta-button {
+            padding: 15px 30px;
+            font-family: sans-serif;
+            font-weight: bold;
+            color: #e0e0e0;
+            background-color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #0f7a14;
+            /* Darker shade on hover */
+        }
+
+        .OR p {
+            padding-top: 15px;
+            color: #666;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 600;
+        }
+
+        /* main content start */
+
+        .main-content {
+            margin-top: 100px;
+            padding: 40px 0;
+        }
+
+        .history-section,
+        .leadership-section {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            color: #e0e0e0;
+            background-color: #50ba71;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-radius: 20px;
+            font-size: 2.5rem;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 500;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .history-content {
+            display: flex;
+            flex-direction: row;
+            line-height: 1.8;
+            color: #444;
+            padding-left: 20px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-right: 20px;
+            border-radius: 23px;
+            text-align: justify;
+            margin-bottom: 30px;
+        }
+
+        .history-content img {
+            border-radius: 20px;
+            width: 400px;
+            height: 250px;
+        }
+
+        .para {
+            margin-left: 30px;
+            font-size: x-small;
+        }
+
+        .leader-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+            padding-left: 60px;
+            padding-right: 60px;
+            transition: transform 0.3s ease;
+        }
+
+        .leader-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .leader-name {
+            color: var(--primary-color);
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+
+        .leader-position {
+            color: #4b685a;
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .leader-qualifications {
+            color: #222121;
+            margin-bottom: 5px;
+        }
+
+        .leader-grade {
+            color: #666;
+            font-style: italic;
+        }
+
+        .flex-sec {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .none-flex {
+            align-items: start;
+            justify-content: left;
+        }
+
+        .flex-img {
+            border-radius: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 0 0;
+        }
+
+        .image-logo {
+            border-radius: 67px;
+            margin-top: 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-evenly;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+
+        .footer-section p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        b {
+            color: #000;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            flex-direction: column;
+        }
+
+        .social-link-gap {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 20px;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .container-last {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer-bottom {
+            background-color: #222;
+            padding: 20px 0;
+            color: white;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+                color: #000;
+            }
+
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .bar {
+                display: block;
+                width: 25px;
+                height: 3px;
+                margin: 5px auto;
+                transition: all 0.3s ease-in-out;
+                background-color: var(--secondary-color);
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                gap: 0;
+                flex-direction: column;
+                background-color: var(--primary-color);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                padding: 20px 0;
+            }
+
+            .nav-menu a {
+                color: #e0e0e0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 16px 0;
+            }
+
+            .cta-button {
+                padding: 10px 10px;
+                margin: 0;
+                font-family: sans-serif;
+                font-weight: bold;
+                color: #e0e0e0;
+                background-color: var(--primary-color);
+                text-decoration: none;
+                border-radius: 5px;
+                transition: 0.3s;
+            }
+
+            .OR p {
+                padding-top: 10px;
+                color: #666;
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: 600;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-section {
+                padding: 0 20px;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+        }
+
+
+        /* General Styling */
+        .events-section {
+            text-align: center;
+            background: #f3f3f3;
+            margin: 0px auto;
+            padding: 20px;
+            height: 500px;
+            width: 100%;
+        }
+
+        .container-events h2 {
+            font-size: 2rem;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+
+        /* Carousel Styling */
+        .carousel-wrapper {
+            position: relative;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-item {
+            flex: 0 0 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .event-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #3dc57a;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: 90%;
+        }
+
+        .event-image img {
+            width: 300px;
+            height: 200px;
+            border-radius: 10px;
+        }
+        .event-image1 img {
+            width: 250px;
+            height: 200px;
+            border-radius: 10px;
+        }
+        .event-details {
+            padding: 20px;
+            text-align: left;
+        }
+
+        .event-details h3 {
+            color: #fdfdfd;
+            font-size: x-large;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .event-meta {
+            background-color: #7effbe;
+            color: #2c2c2c;
+            padding: 7px 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        /* Arrows Styling */
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #1a1a1a;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .left-arrow {
+            left: 15px;
+        }
+
+        .right-arrow {
+            right: 15px;
+        }
+
+        /* Dots Styling */
+        .dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .dot {
+            height: 10px;
+            width: 10px;
+            background-color: #636363;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .dot.active {
+            background-color: #006e37;
+        }
+
+
+        /* faqs sec */
+        .faq-part {
+            background: #f3f3f3;
+        }
+
+        .faq-section {
+            padding: 30px;
+            padding-bottom: 40px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .faq-section h2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+            font-size: xx-large;
+        }
+
+        .faq {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #2fac6d;
+            font-size: 16px;
+        }
+
+        .faq-question:hover {
+            background: #70ac8d;
+
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 15px;
+            font-size: 14px;
+            color: #555;
+            background: #fff;
+        }
+
+        .faq-arrow {
+            font-size: 20px;
+            transition: transform 0.3s;
+        }
+
+        .faq.active .faq-arrow {
+            transform: rotate(180deg);
+        }
+
+        .faq.active .faq-answer {
+            display: block;
+        }
+
+
+
+        .subscription-section {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            background-color: #118b0d;
+            padding: 20px;
+            padding-top: 70px;
+            padding-bottom: 60px;
+
+        }
+
+        .news-text {
+            text-align: left;
+        }
+
+        .subscription-section h2 {
+            font-size: 34px;
+            color: #e9e9e9;
+            margin-bottom: 10px;
+        }
+
+        .subscription-section p {
+            font-size: 16px;
+            color: #e9e9e9;
+        }
+
+        .subscription-form {
+            text-align: center;
+            display: flex;
+            gap: 10px;
+        }
+
+        .subscription-form input[type="email"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px 0 0 5px;
+            flex: 1;
+        }
+
+        .subscription-form button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #8B0000;
+            /* Dark red button */
+            color: #fff;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+
+        .subscription-form button:hover {
+            background-color: #a00000;
+            /* Darker shade on hover */
+        }
+
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .subscription-form {
+                flex-direction: column;
+            }
+
+            .subscription-form input[type="email"],
+            .subscription-form button {
+                width: 100%;
+                border-radius: 5px;
+            }
+
+            .subscription-form button {
+                margin-top: 10px;
+            }
+        }
+    </style>
+
+    <!-- Responsive all code -->
+    <style>
+        @media (max-width: 576px) {
+
+            /* General Styles */
+            .container {
+                width: 100%;
+                padding: 0 15px;
+            }
+
+            h2.section-title {
+                font-size: 1.5rem;
+                text-align: center;
+                margin-bottom: 15px;
+            }
+
+            /* History Section */
+            .history-section .history-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: justify;
+            }
+
+            .history-content img {
+                width: 100%;
+                height: auto;
+                margin-bottom: 15px;
+            }
+
+            .history-content .para {
+                font-size: 0.9rem;
+                line-height: 1.5;
+            }
+
+            @media (max-width: 576px) {
+                /* Events Section */
+
+                .event-image img {
+                    width: 100%;
+                    /* Full width */
+                    height: auto;
+                    /* Maintain aspect ratio */
+                    border-radius: 8px;
+                    /* Rounded corners */
+                    margin-bottom: 8px;
+                    /* Space between image and text */
+                }
+
+                .event-details {
+                    text-align: center;
+                    /* Center align text */
+                    padding: 5px;
+                }
+
+                .event-details h3 {
+                    font-size: 1.2rem;
+                    /* Slightly larger title */
+                    /* Darker text for better readability */
+                    margin-bottom: 8px;
+                }
+
+                .event-details p {
+                    font-size: 0.9rem;
+                    /* Compact description font */
+                    /* Neutral gray for description */
+                    line-height: 1.5;
+                    /* Better text spacing */
+                    margin-bottom: 5px;
+                }
+
+                .event-meta {
+                    font-size: 0.8rem;
+                    /* Small metadata font */
+                    color: #888888;
+                    /* Light gray for subtle metadata */
+                    margin-top: 8px;
+                }
+            }
+
+
+            /* Leadership Section */
+            .leadership-section .leader-card {
+                margin: 20px 0;
+                text-align: center;
+                padding: 15px;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+            }
+
+            .leader-card .flex-sec {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .leader-card .none-flex {
+                margin-bottom: 15px;
+            }
+
+            .leader-card h3.leader-name {
+                font-size: 1.2rem;
+            }
+
+            .leader-card h4.leader-position {
+                font-size: 1rem;
+                color: #555;
+            }
+
+            .leader-card p.leader-qualifications {
+                font-size: 0.9rem;
+                line-height: 1.5;
+            }
+
+            .leader-card .flex-img img {
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+        }
+
+
+        /* Responsive Styling for Mobile */
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-section {
+                margin-bottom: 20px;
+            }
+
+            .social-links ul {
+                justify-content: center;
+            }
+
+            .container-last {
+                flex-direction: column;
+                align-items: center;
+                gap: 5px;
+            }
+
+            .footer-bottom {
+                padding: 15px 0;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+
+    <header class="header">
+        <div class="container">
+            <nav class="nav-wrapper">
+                <a href="#" class="logo"><img style="color:#45a049;"
+                        src="https://scontent.fkhi22-1.fna.fbcdn.net/v/t39.30808-6/349721370_1469902193546859_1201581706797419003_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=4D3_IIdkHYUQ7kNvgFui_tb&_nc_zt=23&_nc_ht=scontent.fkhi22-1.fna&_nc_gid=AZ-8l2oCkiyIn9j97ASDuiB&oh=00_AYCgQU6LbaE67NleFlLF2SF2h0FNQnBC-WkkxPeP5HzXUA&oe=6739043F"
+                        alt="" width="50px" height="50px"></a>
+                <ul class="nav-menu">
+                    <li><a href="../Home/Portal-Home copy.html">Home</a></li>
+                    <li><a href="../About Us/Portal-About copy.html">About Us</a></li>
+                    <li><a href="../Academics sec/Poartal-Acadmic copy.html">Academics</a></li>
+                    <li><a href="../Admission open/Portal-Admis copy.html">Exam Results</a></li>
+                    <li><a href="../Faculty/Portal-Faculty copy.html">Faculty</a></li>
+                    <li><a href="../Contact Us/Portal-Contact copy.html">Contact Us</a></li>
+                </ul>
+
+
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+
+    <main class="main-content container">
+        <section class="history-section">
+            <h2 class="section-title">History & BackGround</h2>
+
+            <div class="history-content leader-card">
+                <div><img src="../Assets/origincol111.JPG" width="100%" alt=""></div>
+                <div class="para"><strong>Siraj-ud-Daulah Government Degree College (Morning), FC Area, Karachi</strong>
+                    The building where the college currently operates was originally constructed for a different
+                    college.
+                    Yes, in 1970, this building was built for the establishment of <strong>Bangla College</strong>,
+                    as<strong> before 1970,</strong> a
+                    significant Bengali community resided in Moosa Colony.
+
+                    Siraj-ud-Daulah College was initially a private institution established in 1964 by <strong>Muhammad
+                        Amir Ahmed
+                        Khan, Raja of Mahmudabad</strong>, a leader of the Pakistan Movement and a close associate of
+                    Quaid-e-Azam. The
+                    college was set up in a bungalow located in Federal B Area Block 5. It operated in two shifts:
+                    science
+                    classes were held in the morning, while commerce and arts classes were conducted in the evening.
+
+                    On <strong>September 1, 1972, under the nationalization policy announced by the then Prime Minister
+                    </strong>Zulfikar
+                    Ali Bhutto, all private institutions were brought under government ownership. Consequently,
+                    Siraj-ud-Daulah College was also made a government college and relocated to this building, which had
+                    been constructed for Bengalis in 1970 but remained vacant due to the events of the<strong>Fall of
+                        Dhaka</strong>.
+
+                    <strong>Professor Mujtaba Hussain</strong> was appointed as the first principal of the college,
+                    while Muhammad Shoaib
+                    Farooqi, popularly known as Shabi Farooqi, was designated as the evening in-charge. It is worth
+                    noting
+                    that during this period, evening colleges operated under the supervision of the morning principal.
+                    On
+                    <strong>August 16, 2000</strong>, all evening colleges in Karachi were granted the status of
+                    independent colleges.
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+
+
+    <section class="events-section">
+        <div class="container-events">
+            <h2>Events</h2>
+        </div>
+
+        <!-- Carousel Wrapper -->
+        <div class="carousel-wrapper">
+            <div class="carousel">
+                <!-- Event 1 -->
+                <div class="carousel-item">
+                    <div class="event-content">
+                        <div class="event-image1">
+                            <img src="../Assets/Event-Steam.jpg" alt="Event Image" />
+                        </div>
+                        <div class="event-details">
+                            <h3>STEAM Exhibition</h3>
+                            <br>
+                            <p>On November , 2024, our college hosted a successful STEAM Project Exhibition, showcasing
+                                the creative and innovative projects of our students. The judges were impressed by the
+                                high level of effort and skill displayed.</p>
+                            <p class="event-meta">November 2024</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="event-content">
+                        <div class="event-image1">
+                            <img src="../Assets/Event-Steam.jpg" alt="Event Image" />
+                        </div>
+                        <div class="event-details">
+                            <h3>STEAM Exhibition</h3>
+                            <br>
+                            <p>On November , 2024, our college hosted a successful STEAM Project Exhibition, showcasing
+                                the creative and innovative projects of our students. The judges were impressed by the
+                                high level of effort and skill displayed.</p>
+                            <p class="event-meta">November 2024</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- event 2 -->
+                <div class="carousel-item">
+                    <div class="event-content">
+                        <div class="event-image">
+                            <img src="../Assets/eidmiladunnabi.jpg" alt="Event Image" />
+                        </div>
+                        <div class="event-details">
+                            <h3>Eid Millad Un Nabi</h3>
+                            <br>
+                            <p>Our College celebrated the birth anniversary of Prophet Muhammad (PBUH) with enthusiasm.
+                                The event included Naat recitations, Islamic speeches, Quran recitation, and a quiz
+                                competition. The College was beautifully decorated, and the event concluded with a
+                                special prayer.</p>
+                            <p class="event-meta">October 2024</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Event 3 -->
+                <div class="carousel-item">
+                    <div class="event-content">
+                        <div class="event-image">
+                            <img src="../Assets/6th game.jpg" alt="Event Image" />
+                        </div>
+                        <div class="event-details">
+                            <h3>6 <sup>th</sup> Sindh Game</h3>
+                            <br>
+                            <p>Our college participated in the 6th Sindh Games in February 2024, where we became
+                                runners-up in badminton within the Karachi Central District. In cricket, we qualified up
+                                to the quarterfinals.</p>
+                            <p class="event-meta">Feburary 2024</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Event 4 -->
+                <div class="carousel-item">
+                    <div class="event-content">
+                        <div class="event-image">
+                            <img src="../Assets/it sem.jpg" alt="Event Image" />
+                        </div>
+                        <div class="event-details">
+                            <h3>IT Seminar</h3>
+                            <br>
+                            <p>An IT seminar was held at Siraj-ud-Daulah Government Degree College (Morning), organized
+                                by Aptech, where students were provided valuable insights into IT and the latest
+                                technologies. Additionally, an IT quiz was conducted, and prizes were distributed among
+                                students. The seminar proved to be an excellent opportunity for students to gain
+                                knowledge about current trends in the IT field.</p>
+                            <p class="event-meta">October 2024</p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+            <!-- Arrows -->
+            <button class="arrow left-arrow">←</button>
+            <button class="arrow right-arrow">→</button>
+        </div>
+
+        <!-- Dots -->
+        <div class="dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </section>
+    <script>
+        const carousel = document.querySelector('.carousel');
+        const dots = document.querySelectorAll('.dot');
+        const leftArrow = document.querySelector('.left-arrow');
+        const rightArrow = document.querySelector('.right-arrow');
+        let currentIndex = 0;
+
+        function updateCarousel() {
+            const offset = -currentIndex * 100; // Adjust for item width
+            carousel.style.transform = `translateX(${offset}%)`;
+
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        leftArrow.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + dots.length) % dots.length;
+            updateCarousel();
+        });
+
+        rightArrow.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % dots.length;
+            updateCarousel();
+        });
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentIndex = index;
+                updateCarousel();
+            });
+        });
+
+    </script>
+
+    <main class="main-content container">
+
+
+        <section class="leadership-section">
+            <h2 class="section-title">Project Superviser</h2>
+
+            <div class="leader-card">
+                <div class="flex-sec">
+                    <div class="none-flex">
+                        <h3 class="leader-name">Dr. Mirza Salman Baig</h3>
+                        <h4 class="leader-position">Lecturer</h4><br>
+                        <p class="leader-qualifications">
+                            <strong>Qulification</strong><br><br>
+                            Ph.D Applied Physics<br>
+
+                        </p>
+
+                    </div>
+                    <div class="flex-img">
+                        <img src="../Assets/mirza.jpg" width="200px" height="200px" style="border-radius: 100px;"
+                            alt="leader img">
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="leadership-section">
+            <h2 class="section-title">Project Developer</h2>
+
+            <div class="leader-card">
+                <div class="flex-sec">
+                    <div class="none-flex">
+                        <h3 class="leader-name">Syed M.Faizyab Hussain</h3>
+                        <h4 class="leader-position">Project Developer</h4><br>
+                        <p class="leader-qualifications">
+                            <strong>Qulification</strong><br><br>
+                            XI Computer Science <br>
+
+                        </p>
+
+                    </div>
+                    <div class="flex-img">
+                        <img src="../Assets/faizypic.jpg" width="200px" height="200px" style="border-radius: 100px;"
+                            alt="leader img">
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+    </main>
+
+
+    <section class="faq-part">
+        <div class="faq-section">
+            <h2>FAQs</h2>
+            <div class="faq">
+                <div class="faq-question">
+                    When does admission start in Intermediate?
+                    <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    Admission process normally begins in April and continues till July. New session starts from
+                    August...
+                </div>
+            </div>
+            <div class="faq">
+                <div class="faq-question">
+                    Is there any age relaxation (just a few days) possible?
+                    <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    Applicants must not be above 18 years of age on August 1st, in the year of application. However,
+                    those more than 18 years of age but less than 19 can be admitted subject to approval of the
+                    Chairman-SAI.
+
+                    Relaxation up to 1 year is given to Huffaz-e-Quran (candidates are required to show their “Sanad”)
+                </div>
+            </div>
+            <div class="faq">
+                <div class="faq-question">
+                    What sports facilities are available at College?
+                    <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    We have in campus facilities for Table Tennis, Badminton, Basketball and Throw Ball. We participate
+                    in Cricket, Badminton, Throw Ball, Football, Hockey, Tennis and Table Tennis tournaments.
+                </div>
+            </div>
+            <div class="faq">
+                <div class="faq-question">
+                    Are there any opportunities for academic creativity (written and spoken) at the College?
+                    <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    There are a wide range of co-curricular activities which enhance a student’s written and spoken
+                    skills. SAI publications include Gul-e-SAI, students are always encouraged to participate. There are
+                    in-house and intercollegiate competitions like Bilingual Declamations and Writing Competitions. Our
+                    students also participate in inter-collegiate competitions. Each year students stage skits as well
+                    as English & Urdu stage shows.
+                </div>
+            </div>
+            <br>
+            <p style="padding-left: 30px;">Do You Have Any Question, So <a href="../Contact Us/Contact.html">click
+                    here</a> and contact help Centre.</p>
+        </div>
+    </section>
+    <script>
+        const faqs = document.querySelectorAll('.faq');
+
+        faqs.forEach(faq => {
+            faq.addEventListener('click', () => {
+                // Close all other FAQs
+                faqs.forEach(item => {
+                    if (item !== faq) item.classList.remove('active');
+                });
+
+                // Toggle current FAQ
+                faq.classList.toggle('active');
+            });
+        });
+    </script>
+
+
+    <section class="Newsletter">
+        <div class="subscription-section">
+            <div class="news-text">
+                <h2>Newsletter Subscription</h2>
+                <p>Please subscribe to get news & updates.</p>
+            </div>
+            <div>
+                <form action="#" class="subscription-form">
+                    <input type="email" placeholder="Enter your mail" required>
+                    <button type="submit">Subscription</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+
+    <footer class="footer">
+        <div class="footer-content container">
+            <img class="image-logo" style="color:#45a049;"
+                src="https://scontent.fkhi22-1.fna.fbcdn.net/v/t39.30808-6/349721370_1469902193546859_1201581706797419003_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=4D3_IIdkHYUQ7kNvgFui_tb&_nc_zt=23&_nc_ht=scontent.fkhi22-1.fna&_nc_gid=AZ-8l2oCkiyIn9j97ASDuiB&oh=00_AYCgQU6LbaE67NleFlLF2SF2h0FNQnBC-WkkxPeP5HzXUA&oe=6739043F"
+                alt="" width="100px" height="100px">
+            <div class="footer-section">
+
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../About Us/About.html">About Us</a></li>
+                    <li><a href="../About Us/About.html">Events</a></li>
+                    <li><a href="../Contact Us/Contact.html">Meet to Principal</a></li>
+                    <li><a href="../Faculty/faculty.html">Faculty Members</a></li>
+                    <li><a href="../Academics sec/Academics.html">Academic Calendar</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Sirajudullah Govt. Degree College Road, Near
+                    City Center.</p>
+                <p><i class="fas fa-phone"></i> +1234567890</p>
+                <p><i class="fas fa-envelope"></i> info@sirajudullah.edu</p>
+
+                <div class="social-links footer-section">
+                    <div class="social-link-gap">
+                        <div>
+                            <h3>Social Links</h3>
+                        </div>
+                        <div>
+                            <ul>
+                                <a href="#"><i class="fab fa-facebook"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="footer-section">
+                <h3>Important Info</h3>
+                <ul>
+
+                    <li><a href="../Sign Up/signup.html">Students Portal</a></li>
+                    <li><a href="../Sign Up/signup.html">Teachers Portal</a></li>
+                    <li><a href="../Admission open/Admissions.html">Admission Process</a></li>
+                    <li><a href="../Admission open/Admissions.html">Mark Sheet</a></li>
+                    <li><a href="../Academics sec/Academics.html">Model Papers</a></li>
+                    <li><a href="../Academics sec/Academics.html">Exam Schedule</a></li>
+                    <li><a href="../Admission open/Admissions.html">Results</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container container-last">
+                <div>
+                    <p>&copy; 2024 Siraj-ud-Daulah Govt. Degree College (Morning) , All rights reserved. Developed by
+                        Faizyab Hussain.</p>
+                </div>
+                <div>
+                    <p>Privacy policy | Terms & Conditions</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector(".nav-menu");
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        });
+
+        document.querySelectorAll(".nav-menu li a").forEach(n => n.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+        }));
+    </script>
+</body>
+
+</html>

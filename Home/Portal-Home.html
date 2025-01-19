@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sirajudullah Govt. Degree College</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            box-sizing: border-box;
+        }
+
+        .main-body {
+            background-color: #36bd63;
+        }
+
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #45a049;
+        }
+
+        .header {
+            background-color: rgb(250, 250, 250);
+            padding: 20px 0;
+            position: fixed;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin-left: 30px;
+        }
+
+        .nav-menu a {
+            color: #4CAF50;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #035225;
+            padding-top: 14px;
+            border-top: 1px solid #0a9111;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            transition: all 0.3s ease-in-out;
+            background-color: white;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 7px;
+            /* Space between buttons */
+        }
+
+        .cta-button {
+            padding: 15px 30px;
+            font-family: sans-serif;
+            font-weight: bold;
+            color: #e0e0e0;
+            background-color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #0f7a14;
+            /* Darker shade on hover */
+        }
+
+        .OR p {
+            padding-top: 15px;
+            color: #666;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 600;
+        }
+
+        /* Hero Section Styles */
+        .hero {
+            padding-top: 90px;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../Assets/homeimgpicnew-Photoroom\ \(2\).png');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            color: white;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+     
+        .hero-content h1 {
+            font-family: sans-serif;
+            font-size: xx-large;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .cta-button1 {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: var(--primary-color);
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 400;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 50px 0 0 0;
+        }
+
+
+
+        .mission-vision {
+            padding: 60px 0;
+            background-color: #f3f3f3;
+        }
+
+        .section-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .mission-box,
+        .vision-box {
+            background-color: #509768;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            border-left: 6px solid #09bc48;
+        }
+
+        .mission-box h2,
+        .vision-box h2 {
+            color: #eefbf3;
+            font-family: Arial, sans-serif;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .mission-box p,
+        .vision-box p {
+            color: #f1efef;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Container styling */
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            padding: 50px;
+            background-color: #0f7d27;
+            /* Background color similar to the original */
+            flex-wrap: wrap;
+        }
+
+        /* Individual stat item styling */
+        .stat-item {
+            text-align: center;
+            color: white;
+            padding: 30px 20px;
+            transition: background-color 0.3s ease;
+            flex: 1 1 200px;
+            max-width: 250px;
+            border-radius: 8px;
+        }
+
+        /* Styling for the center item with yellow background */
+        .stat-item.highlight {
+
+            /* Yellow color */
+            color: #ffffff;
+        }
+
+        /* Hover effect for items */
+        .stat-item:hover {
+            background-color: rgba(247, 213, 72, 0.8);
+        }
+
+        .stat-item.highlight:hover {
+            background-color: rgba(247, 213, 72, 0.8);
+            /* Lighter shade on hover */
+        }
+
+        /* Icon styling */
+        .stat-item i {
+            font-size: 40px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Responsive typography */
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            margin-top: 5px;
+        }
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 768px) {
+            .stats-container {
+                padding: 20px;
+            }
+
+            .stat-item {
+                flex: 1 1 100%;
+                max-width: none;
+            }
+
+            .stat-number {
+                font-size: 1.5rem;
+            }
+        }
+
+
+
+
+
+
+        .leader-section {
+            padding: 60px 0;
+            font-family: Arial, sans-serif;
+            font-size: larger;
+            background-color: #77e2a4;
+        }
+
+        .leader-content {
+            display: grid;
+            font-family: Arial, sans-serif;
+            grid-template-columns: 300px 1fr;
+            gap: 40px;
+            margin-top: 30px;
+            align-items: center;
+        }
+
+        .leader-image img {
+            width: 90%;
+            border-radius: 140px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .leader-info h3 {
+            color: #333;
+            font-family: Arial, sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .leader-info h4 {
+            color: #666;
+            font-family: Arial, sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .leader-info p {
+            color: #666;
+            line-height: 1.6;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .read-more {
+            display: inline-block;
+            padding: 10px 25px;
+            background-color: var(--primary-color);
+            font-family: Arial, sans-serif;
+            font-weight: 500;
+            color: #2e2e2e;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .read-more:hover {
+            background-color: #0f7a14;
+            color: #e0e0e0;
+            transform: translateY(-2px);
+        }
+
+
+
+        .subscription-section {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            background-color: #118b0d;
+            padding: 20px;
+            padding-top: 70px;
+            padding-bottom: 60px;
+
+        }
+
+        .news-text {
+            text-align: left;
+        }
+
+        .subscription-section h2 {
+            font-size: 34px;
+            color: #e9e9e9;
+            margin-bottom: 10px;
+        }
+
+        .subscription-section p {
+            font-size: 16px;
+            color: #e9e9e9;
+        }
+
+        .subscription-form {
+            text-align: center;
+            display: flex;
+            gap: 10px;
+        }
+
+        .subscription-form input[type="email"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px 0 0 5px;
+            flex: 1;
+        }
+
+        .subscription-form button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #8B0000;
+            /* Dark red button */
+            color: #fff;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+
+        .subscription-form button:hover {
+            background-color: #a00000;
+            /* Darker shade on hover */
+        }
+
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .subscription-form {
+                flex-direction: column;
+            }
+
+            .subscription-form input[type="email"],
+            .subscription-form button {
+                width: 100%;
+                border-radius: 5px;
+            }
+
+            .subscription-form button {
+                margin-top: 10px;
+            }
+        }
+/*  */
+
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 0 0;
+        }
+
+        .image-logo {
+            border-radius: 67px;
+            margin-top: 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-evenly;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+
+        .footer-section p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        b {
+            color: #000;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            flex-direction: column;
+        }
+
+        .social-link-gap {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 20px;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .container-last {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer-bottom {
+            background-color: #222;
+            padding: 20px 0;
+            color: white;
+            display: flex;
+            justify-content: space-around;
+        }
+
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+                color: #000;
+            }
+
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .bar {
+                display: block;
+                width: 25px;
+                height: 3px;
+                margin: 5px auto;
+                transition: all 0.3s ease-in-out;
+                background-color: var(--secondary-color);
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                gap: 0;
+                flex-direction: column;
+                background-color: var(--primary-color);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                padding: 20px 0;
+            }
+
+            .nav-menu a {
+                color: #e0e0e0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 16px 0;
+            }
+
+            .cta-button {
+                padding: 10px 10px;
+                margin: 0;
+                font-family: sans-serif;
+                font-weight: bold;
+                color: #e0e0e0;
+                background-color: var(--primary-color);
+                text-decoration: none;
+                border-radius: 5px;
+                transition: 0.3s;
+            }
+
+            .OR p {
+                padding-top: 10px;
+                color: #666;
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: 600;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .section-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .flex-sec {
+                display: flex;
+                flex-direction: column-reverse;
+            }
+
+            .flex-img img {
+                width: 275px;
+                height: 100pxs;
+            }
+
+            .leader-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .leader-image {
+                max-width: 250px;
+                margin: 0 auto;
+            }
+
+            .footer-content {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .footer-section {
+                padding: 20px;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        /* General Styling */
+        .events-section {
+            text-align: center;
+            background: #f3f3f3;
+            margin: 0px auto;
+            padding: 20px;
+            height: 500px;
+            width: 100%;
+        }
+
+        .container-events h2 {
+            font-size: 2rem;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+
+        /* Carousel Styling */
+        .carousel-wrapper {
+            position: relative;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-item {
+            flex: 0 0 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .event-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #3dc57a;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: 90%;
+        }
+
+        .event-image img {
+            width: 300px;
+            height: 200px;
+            border-radius: 10px;
+        }
+        .event-image1 img {
+            width: 250px;
+            height: 200px;
+            border-radius: 10px;
+        }
+        .event-details {
+            padding: 20px;
+            text-align: left;
+        }
+
+        .event-details h3 {
+            color: #fdfdfd;
+            font-size: x-large;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .event-meta {
+            background-color: #7effbe;
+            color: #2c2c2c;
+            padding: 7px 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        /* Arrows Styling */
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #1a1a1a;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .left-arrow {
+            left: 15px;
+        }
+
+        .right-arrow {
+            right: 15px;
+        }
+
+        /* Dots Styling */
+        .dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .dot {
+            height: 10px;
+            width: 10px;
+            background-color: #636363;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .dot.active {
+            background-color: #006e37;
+        }
+
+
+        /* faqs sec */
+        .faq-part {
+            background: #f3f3f3;
+        }
+
+        .faq-section {
+            padding: 30px;
+            padding-bottom: 40px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .faq-section h2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+            font-size: xx-large;
+        }
+
+        .faq {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #2fac6d;
+            font-size: 16px;
+        }
+
+        .faq-question:hover {
+            background: #70ac8d;
+
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 15px;
+            font-size: 14px;
+            color: #555;
+            background: #fff;
+        }
+
+        .faq-arrow {
+            font-size: 20px;
+            transition: transform 0.3s;
+        }
+
+        .faq.active .faq-arrow {
+            transform: rotate(180deg);
+        }
+
+        .faq.active .faq-answer {
+            display: block;
+        }
+    </style>
+  <style>
+    @media (max-width: 576px) {
+
+       
+.leader-section{
+margin-top: 100px;
+}
+/* Events Section */
+
+.container-events{
+   margin: 0px;
+}
+.event-image img {
+   width: 100%; /* Full width */
+   height: auto; /* Maintain aspect ratio */
+   border-radius: 8px; /* Rounded corners */
+   margin-bottom: 8px; /* Space between image and text */
+}
+
+.event-details {
+   text-align: center; /* Center align text */
+   padding: 5px;
+}
+
+.event-details h3 {
+   font-size: 1.2rem; /* Slightly larger title */
+    /* Darker text for better readability */
+   margin-bottom: 8px;
+}
+
+.event-details p {
+   font-size: 0.9rem; /* Compact description font */
+    /* Neutral gray for description */
+   line-height: 1.5; /* Better text spacing */
+   margin-bottom: 5px;
+}
+
+.event-meta {
+   font-size: 0.8rem; /* Small metadata font */
+   color: #888888; /* Light gray for subtle metadata */
+   margin-top: 8px;
+}
+}
+</style>
+
+    <header class="header">
+        <div class="container">
+            <nav class="nav-wrapper">
+                <a href="#" class="logo"><img style="color:#45a049;" src="../Assets/logo1.jpg" alt="" width="50px"
+                        height="50px"></a>
+                <ul class="nav-menu">
+                    <li><a href="../Home/Portal-Home.html">Home</a></li>
+                    <li><a href="../About Us/Portal-About.html">About Us</a></li>
+                    <li><a href="../Academics sec/Poartal-Acadmic.html" >Academics</a></li>
+                    <li><a href="../Admission open/Portal-Admis.html" >Admissions</a></li>
+                    <li><a href="../Faculty/Portal-Faculty.html" >Faculty</a></li>
+                    <li><a href="../Contact Us/Portal-Contact.html" >Contact Us</a></li>
+                </ul>
+                
+
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Siraj-ud-Daulah Govt. Degree College (Morning)</h1>
+            <p>Empowering minds, shaping futures, and building tomorrow's leaders
+                through quality education and
+                excellence.</p>
+            <a href="../Admission open/Portal-Admis.html" class="cta-button1">Start Now</a>
+        </div>
+    </section>
+
+    <section class="mission-vision">
+        <div class="container">
+            <div class="section-wrapper">
+                <div class="mission-box">
+                    <h2>Our Mission</h2>
+                    <p>To provide quality education that empowers students with knowledge, skills and values needed
+                        to
+                        excel in their chosen fields and contribute meaningfully to society. We strive to create an
+                        environment that fosters academic excellence, critical thinking, and character development.
+                    </p>
+                </div>
+
+                <div class="vision-box">
+                    <h2>Our Vision</h2>
+                    <p>To be a leading educational institution that transforms students into responsible citizens
+                        and
+                        future leaders through innovative teaching methods, research opportunities, and holistic
+                        development programs. We envision creating a community of lifelong learners who drive
+                        positive
+                        change.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <!-- Stats Container -->
+        <div class="stats-container">
+            <!-- Stat Item 1 -->
+            <div class="stat-item">
+                <i>&#x1F393;</i> <!-- Graduation cap icon (can replace with an SVG if needed) -->
+                <div class="stat-number">5400+</div>
+                <div class="stat-label">Enrolled Students</div>
+            </div>
+
+            <!-- Stat Item 2 (highlighted with yellow background) -->
+            <div class="stat-item highlight">
+                <i>&#x1F3C6;</i> <!-- Trophy icon -->
+                <div class="stat-number">20+</div>
+                <div class="stat-label">Years of Academic Excellence</div>
+            </div>
+
+            <!-- Stat Item 3 -->
+            <div class="stat-item">
+                <i>&#x1F464;</i> <!-- Profile icon -->
+                <div class="stat-number">1506+</div>
+                <div class="stat-label">High Achievers</div>
+            </div>
+
+            <!-- Stat Item 4 -->
+            <div class="stat-item">
+                <i>&#x23F0;</i> <!-- Clock icon -->
+                <div class="stat-number">20+</div>
+                <div class="stat-label">Completed Sessions</div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="events-section">
+        <div class="container-events">
+            <h2>Events</h2>
+        </div>
+
+        <!-- Carousel Wrapper -->
+        <div class="carousel-wrapper">
+            <div class="carousel">
+                <!-- Event 1 -->
+                <div class="carousel-item">
+                    <div class="event-content">
+                        <div class="event-image1">
+                            <img src="../Assets/Event-Steam.jpg" alt="Event Image" />
+                        </div>
+                        <div class="event-details">
+                            <h3>STEAM Exhibition</h3>
+                            <br>
+                            <p>On November , 2024, our college hosted a successful STEAM Project Exhibition, showcasing
+                                the creative and innovative projects of our students. The judges were impressed by the
+                                high level of effort and skill displayed.</p>
+                            <p class="event-meta">November 2024</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- event 2 -->
+                <div class="carousel-item">
+                    <div class="event-content">
+                        <div class="event-image">
+                            <img src="../Assets/eidmiladunnabi.jpg" alt="Event Image" />
+                        </div>
+                        <div class="event-details">
+                            <h3>Eid Millad Un Nabi</h3>
+                            <br>
+                            <p>Our College celebrated the birth anniversary of Prophet Muhammad (PBUH) with enthusiasm.
+                                The event included Naat recitations, Islamic speeches, Quran recitation, and a quiz
+                                competition. The College was beautifully decorated, and the event concluded with a
+                                special prayer.</p>
+                            <p class="event-meta">October 2024</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Event 3 -->
+                <div class="carousel-item">
+                    <div class="event-content">
+                        <div class="event-image">
+                            <img src="../Assets/6th game.jpg" alt="Event Image" />
+                        </div>
+                        <div class="event-details">
+                            <h3>6 <sup>th</sup> Sindh Game</h3>
+                            <br>
+                            <p>Our college participated in the 6th Sindh Games in February 2024, where we became
+                                runners-up in badminton within the Karachi Central District. In cricket, we qualified up
+                                to the quarterfinals.</p>
+                            <p class="event-meta">Feburary 2024</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Event 4 -->
+                <div class="carousel-item">
+                    <div class="event-content">
+                        <div class="event-image">
+                            <img src="../Assets/it sem.jpg" alt="Event Image" />
+                        </div>
+                        <div class="event-details">
+                            <h3>IT Seminar</h3>
+                            <br>
+                            <p>An IT seminar was held at Siraj-ud-Daulah Government Degree College (Morning), organized
+                                by Aptech, where students were provided valuable insights into IT and the latest
+                                technologies. Additionally, an IT quiz was conducted, and prizes were distributed among
+                                students. The seminar proved to be an excellent opportunity for students to gain
+                                knowledge about current trends in the IT field.</p>
+                            <p class="event-meta">October 2024</p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+            <!-- Arrows -->
+            <button class="arrow left-arrow">←</button>
+            <button class="arrow right-arrow">→</button>
+        </div>
+
+        <!-- Dots -->
+        <div class="dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </section>
+    <script>
+        const carousel = document.querySelector('.carousel');
+        const dots = document.querySelectorAll('.dot');
+        const leftArrow = document.querySelector('.left-arrow');
+        const rightArrow = document.querySelector('.right-arrow');
+        let currentIndex = 0;
+
+        function updateCarousel() {
+            const offset = -currentIndex * 100; // Adjust for item width
+            carousel.style.transform = `translateX(${offset}%)`;
+
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        leftArrow.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + dots.length) % dots.length;
+            updateCarousel();
+        });
+
+        rightArrow.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % dots.length;
+            updateCarousel();
+        });
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentIndex = index;
+                updateCarousel();
+            });
+        });
+
+    </script>
+
+    <section class="leader-section">
+        <div class="container">
+            <div class="leader-content">
+                <div class="leader-image">
+                    <img src="../Assets/principalsir.JPG" alt="College Principal">
+                </div>
+                <div class="leader-info">
+                    <h2>Principal</h2><br>
+                    <h3>Prof. Syed Irfan Ahmed</h3>
+                    <h4>Siraj-ud-Daulah Govt. Degree College (Morning).</h4>
+                    <p>"Education is not just about academic excellence; it's about shaping well-rounded individuals
+                        who
+                        can face the challenges of tomorrow. At Sirajudullah Govt. Degree College, we are committed
+                        to
+                        nurturing talent, fostering innovation, and building character."</p>
+                    <a href="../Contact Us/Contact.html" class="read-more">Message Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-part">
+        <div class="faq-section">
+            <h2>FAQs</h2>
+            <div class="faq">
+                <div class="faq-question">
+                    When does admission start in Intermediate?
+                    <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    Admission process normally begins in April and continues till July. New session starts from
+                    August...
+                </div>
+            </div>
+            <div class="faq">
+                <div class="faq-question">
+                    Is there any age relaxation (just a few days) possible?
+                    <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    Applicants must not be above 18 years of age on August 1st, in the year of application. However,
+                    those more than 18 years of age but less than 19 can be admitted subject to approval of the
+                    Chairman-SAI.
+
+                    Relaxation up to 1 year is given to Huffaz-e-Quran (candidates are required to show their “Sanad”)
+                </div>
+            </div>
+            <div class="faq">
+                <div class="faq-question">
+                    What sports facilities are available at College?
+                    <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    We have in campus facilities for Table Tennis, Badminton, Basketball and Throw Ball. We participate
+                    in Cricket, Badminton, Throw Ball, Football, Hockey, Tennis and Table Tennis tournaments.
+                </div>
+            </div>
+            <div class="faq">
+                <div class="faq-question">
+                    Are there any opportunities for academic creativity (written and spoken) at the College?
+                    <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    There are a wide range of co-curricular activities which enhance a student’s written and spoken
+                    skills. SAI publications include Gul-e-SAI, students are always encouraged to participate. There are
+                    in-house and intercollegiate competitions like Bilingual Declamations and Writing Competitions. Our
+                    students also participate in inter-collegiate competitions. Each year students stage skits as well
+                    as English & Urdu stage shows.
+                </div>
+            </div>
+            <br>
+            <p style="padding-left: 30px;">Do You Have Any Question, So <a href="../Contact Us/Contact.html">click
+                    here</a> and contact help Centre.</p>
+        </div>
+    </section>
+    <script>
+        const faqs = document.querySelectorAll('.faq');
+
+        faqs.forEach(faq => {
+            faq.addEventListener('click', () => {
+                // Close all other FAQs
+                faqs.forEach(item => {
+                    if (item !== faq) item.classList.remove('active');
+                });
+
+                // Toggle current FAQ
+                faq.classList.toggle('active');
+            });
+        });
+    </script>
+
+
+    <section class="Newsletter">
+        <div class="subscription-section">
+            <div class="news-text">
+                <h2>Newsletter Subscription</h2>
+                <p>Please subscribe to get news & updates.</p>
+            </div>
+            <div>
+                <form action="#" class="subscription-form">
+                    <input type="email" placeholder="Enter your mail" required>
+                    <button type="submit">Subscription</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="footer-content container">
+            <img class="image-logo" style="color:#45a049;"
+                src="../Assets/logo1.jpg"  alt="" width="100px" height="100px">
+            <div class="footer-section">
+
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../About Us/Portal-About.html">About Us</a></li>
+                    <li><a href="../About Us/Portal-About.html">Events</a></li>
+                    <li><a href="../Contact Us/Portal-Contact.html">Meet to Principal</a></li>
+                    <li><a href="../Faculty/Portal-Faculty.html">Faculty Members</a></li>
+                    <li><a href="../Academics sec/Poartal-Acadmic.html">Academic Calendar</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-map-marker-alt"></i>  Siraj-ud-Daulah Govt. Degree College (Morning) Road, Near
+                    City Center.</p>
+                <p><i class="fas fa-phone"></i> +1234567890</p>
+                <p><i class="fas fa-envelope"></i> info@sirajudullah.edu</p>
+
+                <div class="social-links footer-section">
+                    <div class="social-link-gap">
+                        <div>
+                            <h3>Social Links</h3>
+                        </div>
+                        <div>
+                            <ul>
+                                <a href="#"><i class="fab fa-facebook"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="footer-section">
+                <h3>Important Info</h3>
+                <ul>
+
+                    <li><a href="../Sign Up/signup.html">Students Portal</a></li>
+                    <li><a href="../Sign Up/signup.html">Teachers Portal</a></li>
+                    <li><a href="../Admission open/Portal-Admis.html">Admission Process</a></li>
+                    <li><a href="../Admission open/Portal-Admis.html">Mark Sheet</a></li>
+                    <li><a href="../Academics sec/Poartal-Acadmic.html">Model Papers</a></li>
+                    <li><a href="../Academics sec/Poartal-Acadmic.html">Exam Schedule</a></li>
+                    <li><a href="../Admission open/Portal-Admis.html">Results</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container container-last">
+                <div>
+                    <p>&copy; 2024  Siraj-ud-Daulah Govt. Degree College (Morning), All rights reserved. Developed by
+                        Faizyab Hussain.</p>
+                </div>
+                <div>
+                    <p>Privacy policy | Terms & Conditions</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector(".nav-menu");
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        });
+
+        document.querySelectorAll(".nav-menu a").forEach(n => n.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+        }));
+    </script>
+</body>
+
+</html>

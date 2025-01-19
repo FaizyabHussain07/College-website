@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Assignment | Sirajudullah Govt. Degree College</title>
+  
+  <style>
+    /* General Styling */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 80%;
+      max-width: 800px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+    .container a img{
+      width: 30px;
+      height: 30px;
+    }
+
+    .assignment {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin: 10px 0;
+      background: #f9f9f9;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .assignment:hover {
+      background: #eef3fc;
+    }
+
+    .assignment-icon {
+      display: flex;
+      align-items: start;
+      gap: 10px;
+    }
+
+    .assignment-icon img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+
+    .assignment-info {
+      flex-grow: 1;
+      font-size: 14px;
+      padding: 10px 0;
+    }
+
+    .assignment-info p {
+      margin: 0;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .assignment-date {
+      font-size: 15px;
+      color: #888;
+      margin-left: auto;
+      margin-right: 10px;
+    }
+
+    .assignment-group {
+      font-weight: bold;
+      color: #0056b3;
+    }
+
+    .border {
+      margin-top: 30px;
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 15px;
+      width: 90%;
+    }
+
+    .border a {
+      text-decoration: none;
+      color: #0056b3;
+      font-weight: bold;
+    }
+
+    .back-btn {
+      text-decoration: none;
+      color: #0056b3;
+      font-size: 14px;
+      margin-top: 20px;
+      display: block;
+      text-align: center;
+    }
+
+    .back-btn:hover {
+      text-decoration: underline;
+    }
+  </style>
+
+<script type="module">
+  // Import Firebase libraries
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+  import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
+
+  // Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyBP1ixWzRGPvJS_IHMZJq4gcxz3AGOcCrs",
+    authDomain: "sgdc-assign-t-s.firebaseapp.com",
+    databaseURL: "https://sgdc-assign-t-s-default-rtdb.firebaseio.com",
+    projectId: "sgdc-assign-t-s",
+    storageBucket: "sgdc-assign-t-s.appspot.com",
+    messagingSenderId: "460203134994",
+    appId: "1:460203134994:web:d1644e5ca140516db048cb"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
+
+  // Fetch assignments from Firebase
+  function fetchAssignments() {
+    const assignmentsRef = ref(database, "assignments");
+    const assignmentsContainer = document.getElementById("assignments");
+
+    onValue(assignmentsRef, (snapshot) => {
+      assignmentsContainer.innerHTML = ""; // Clear previous content
+
+      if (!snapshot.exists()) {
+        assignmentsContainer.innerHTML = "<p>No assignments posted yet.</p>";
+        return;
+      }
+
+      const assignments = snapshot.val();
+      Object.values(assignments).forEach((assignment) => {
+        // Create assignment card
+        const assignmentDiv = document.createElement("div");
+        assignmentDiv.className = "assignment";
+        assignmentDiv.innerHTML = `
+          <div class="assignment-icon">
+            <img src="../../Assets/27.11.2024_11.15.14_RECasicon.png" alt="Assignment Icon">
+          </div>
+          <div class="assignment-info">
+            <p><strong>${assignment.teacher}</strong> posted a new Assignment : <span class="assignment-group">${assignment.group}</span> <span><strong>(${assignment.class})</strong></span></p><br/>
+            <p><strong>${assignment.title}</strong></p>
+          </div>
+          <span class="assignment-date">${assignment.date}</span>
+        `;
+
+        // Add click event to show detailed assignment view
+        assignmentDiv.addEventListener("click", () => {
+          assignmentDiv.innerHTML = `
+            <span class="assignment-icon">
+              <img src="../../Assets/27.11.2024_11.15.14_RECasicon.png" alt="Assignment Icon">
+            </span>
+            <div class="assignment-info">
+              <p><h2>${assignment.title}</h2> For : <span class="assignment-group">${assignment.group}</span> <span><strong>(${assignment.class})</strong></span></p>
+              <p><strong>${assignment.teacher}</strong></p>
+              <span><hr/></span>
+              <p>${assignment.announcement}</p>
+              <br/>
+              <p class="border">
+               <a href="${assignment.uploadedFile}" target="_blank">Download & View: ${assignment.uploadedFile}</a>
+              </p>
+            </div>
+            <span class="assignment-date">${assignment.date}</span>
+          `;
+        });
+
+        assignmentsContainer.appendChild(assignmentDiv);
+      });
+    });
+  }
+
+  // Render assignments on page load
+  window.onload = fetchAssignments;
+</script>
+</head>
+
+<body>
+  <div class="container">
+    <a href="./../Poartal-Acadmic.html"><img src=".././../Assets/back.png" alt=""></a>
+    <h2>Assignments for Students</h2>
+
+    <!-- Dynamic Assignments will be inserted here -->
+    <div id="assignments"></div>
+  </div>
+
+ 
+</body>
+
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marksheet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+
+        .nav-menu a:hover {
+            color: #035225;
+            padding-top: 14px;
+            border-top: 1px solid #0a9111;
+        }
+
+        .header {
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+
+        .header p {
+            font-size: larger;
+            font-weight: 700;
+        }
+
+        .section {
+            margin: 20px 0;
+        }
+
+        .form-group {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 10px;
+        }
+
+        .form-group label {
+            width: 45%;
+        }
+
+        .form-group input {
+            width: 45%;
+            padding: 5px;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .table,
+        .table th,
+        .table td {
+            border: 1px solid #000;
+        }
+
+        .table th,
+        .table td {
+            padding: 8px;
+            text-align: center;
+        }
+
+        .footer-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+
+        .footer-buttons button {
+            padding: 10px 20px;
+            background-color: #f2f2f2;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .footer-button button {
+            background-color: rgb(243, 243, 29);
+            border: 1px solid #ccc;
+            cursor: pointer;
+            text-decoration: none;
+            padding: 10px 20px;
+            color: #333;
+        }
+        .footer-bot{
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>Siraj-ud-Daulah Govt. Degree College (Morning)</h1>
+            <h2>Statement of MarkSheet</h2>
+            <p>H.S.C Part I (Class XI) Examination</p>
+        </div>
+    
+        <div class="section">
+            <div class="form-group">
+                <label>Name:</label>
+                <label id="displayName">-</label>
+            </div>
+    
+            <div class="form-group">
+                <label>Roll No:</label>
+                <label id="displayRollNo">-</label>
+            </div>
+        </div>
+    
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>Max Marks</th>
+                    <th>Min Marks</th>
+                    <th>Obtained Marks</th>
+                    <th>Remarks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Physics</td>
+                    <td>85</td>
+                    <td>25</td>
+                    <td><span id="Pmark">-</span></td>
+                    <td><span id="PreM">-</span></td>
+                </tr>
+                <tr>
+                    <td>Computer Science</td>
+                    <td>85</td>
+                    <td>25</td>
+                    <td><span id="CSmark">-</span></td>
+                    <td><span id="CSreM">-</span></td>
+                </tr>
+                <tr>
+                    <td>Mathematics</td>
+                    <td>100</td>
+                    <td>35</td>
+                    <td><span id="Matmark">-</span></td>
+                    <td><span id="MatreM">-</span></td>
+                </tr>
+                <tr>
+                    <td>Urdu Normal</td>
+                    <td>100</td>
+                    <td>35</td>
+                    <td><span id="UNmark">-</span></td>
+                    <td><span id="UNreM">-</span></td>
+                </tr>
+                <tr>
+                    <td>English</td>
+                    <td>100</td>
+                    <td>35</td>
+                    <td><span id="Engmark">-</span></td>
+                    <td><span id="EngreM">-</span></td>
+                </tr>
+                <tr>
+                    <td>Islamiat</td>
+                    <td>50</td>
+                    <td>20</td>
+                    <td><span id="Islmark">-</span></td>
+                    <td><span id="IslreM">-</span></td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <div class="section">
+            <div class="form-group">
+                <label>Grand Total:</label>
+                <label id="grandTotal">- / 520</label>
+            </div>
+        </div>
+    
+        <div class="section">
+            <div class="form-group">
+                <label>Total Percentage:</label>
+                <label id="percentage">-</label>
+            </div>
+        </div>
+    
+        <div class="footer-bot">
+            <div class="footer-buttons">
+                <button onclick="goback()">Go Back</button>
+            </div>
+    
+            <div class="footer-button">
+                <button onclick="saveAsPDF()">Save as PDF</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase Configuration and Logic -->
+    <script type="module">
+        // Import Firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+        import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyC1ceXqudhewacM5B6bqRhzdPIaACs3WVs",
+            authDomain: "sgdc-s-t-m-r-admis.firebaseapp.com",
+            databaseURL: "https://sgdc-s-t-m-r-admis-default-rtdb.firebaseio.com",
+            projectId: "sgdc-s-t-m-r-admis",
+            storageBucket: "sgdc-s-t-m-r-admis.firebasestorage.app",
+            messagingSenderId: "707303969446",
+            appId: "1:707303969446:web:ab8111ffcf3a85a2359a67"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+        // Prompt Roll Number
+        const rollNo = prompt("Enter Roll Number:");
+
+        // Fetch data from Firebase
+        const studentsRef = ref(db, 'students');
+        get(studentsRef).then(snapshot => {
+            if (snapshot.exists()) {
+                const students = snapshot.val();
+                let studentFound = false;
+
+                // Loop through students to find the matching roll number
+                for (const key in students) {
+                    if (students[key].rollNo === rollNo) {
+                        studentFound = true;
+                        const student = students[key];
+
+                        // Display student data
+                        document.getElementById("displayName").textContent = student.name || "-";
+                        document.getElementById("displayRollNo").textContent = student.rollNo || "-";
+                        document.getElementById("Pmark").textContent = student.marks.physics || "-";
+                        document.getElementById("CSmark").textContent = student.marks.computer || "-";
+                        document.getElementById("Matmark").textContent = student.marks.mathematics || "-";
+                        document.getElementById("UNmark").textContent = student.marks.urdu || "-";
+                        document.getElementById("Engmark").textContent = student.marks.english || "-";
+                        document.getElementById("Islmark").textContent = student.marks.islamiat || "-";
+
+                        // Calculate Grand Total and Percentage
+                        const totalObtained = student.marks.physics +
+                                              student.marks.computer +
+                                              student.marks.mathematics +
+                                              student.marks.urdu +
+                                              student.marks.english +
+                                              student.marks.islamiat;
+                        document.getElementById("grandTotal").textContent = totalObtained ? `${totalObtained} / 520` : "- / 520";
+                        document.getElementById("percentage").textContent = totalObtained ? `${((totalObtained / 520) * 100).toFixed(2)}%` : "-";
+
+                        // Update remarks
+                        updateRemarks("PreM", student.marks.physics, 25);
+                        updateRemarks("CSreM", student.marks.computer, 25);
+                        updateRemarks("MatreM", student.marks.mathematics, 35);
+                        updateRemarks("UNreM", student.marks.urdu, 35);
+                        updateRemarks("EngreM", student.marks.english, 35);
+                        updateRemarks("IslreM", student.marks.islamiat, 20);
+
+                        break;
+                    }
+                }
+
+                if (!studentFound) {
+                    // If no student found, display "-" in the fields
+                    document.getElementById("displayName").textContent = "-";
+                    document.getElementById("displayRollNo").textContent = "-";
+                    document.getElementById("Pmark").textContent = "-";
+                    document.getElementById("CSmark").textContent = "-";
+                    document.getElementById("Matmark").textContent = "-";
+                    document.getElementById("UNmark").textContent = "-";
+                    document.getElementById("Engmark").textContent = "-";
+                    document.getElementById("Islmark").textContent = "-";
+                    document.getElementById("grandTotal").textContent = "- / 520";
+                    document.getElementById("percentage").textContent = "-";
+                    
+                    // Update remarks with "-"
+                    updateRemarks("PreM", "-", 25);
+                    updateRemarks("CSreM", "-", 25);
+                    updateRemarks("MatreM", "-", 35);
+                    updateRemarks("UNreM", "-", 35);
+                    updateRemarks("EngreM", "-", 35);
+                    updateRemarks("IslreM", "-", 20);
+
+                    alert("No student found with this roll number.");
+                }
+            } else {
+                alert("No data found in database.");
+            }
+        }).catch(error => {
+            console.error("Error fetching data:", error);
+        });
+
+        // Function to update remarks
+        function updateRemarks(id, marks, minMarks) {
+            const element = document.getElementById(id);
+            element.textContent = marks === "-" ? "-" : (marks >= minMarks ? "Pass" : "Fail");
+        }
+    </script>
+
+    <script>
+
+        // Go back to the teacher marks entry page
+        function goback() {
+            window.location.href = "Portal-Admis.html";
+        }
+
+        // Save the results as PDF
+        function saveAsPDF() {
+            const element = document.querySelector('.container'); // Select the container for the PDF
+            const options = {
+                margin: 10,
+                filename: `Marksheet_${document.getElementById("displayRollNo").textContent}.pdf`,
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            html2pdf().from(element).set(options).save();
+        }
+
+    </script>
+
+</body>
+
+
+</html>
+
+

@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission Form | Sirajudullah Govt. Degree College</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        box-sizing: border-box;
+    }
+
+    :root {
+        --primary-color: #4CAF50;
+        --secondary-color: #45a049;
+    }
+
+    .nav-menu a:hover {
+        color: #035225;
+        padding-top: 14px;
+        border-top: 1px solid #0a9111;
+    }
+
+    .header {
+        background-color: rgb(250, 250, 250);
+        padding: 20px 0;
+        display: flex;
+        position: fixed;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        top: 0;
+        z-index: 100;
+    }
+
+    .container {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .nav-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 24px;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    .nav-menu {
+        display: flex;
+        list-style: none;
+    }
+
+    .nav-menu li {
+        margin-left: 30px;
+    }
+
+    .nav-menu a {
+        color: #4CAF50;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 600;
+        text-decoration: none;
+        font-size: 16px;
+        transition: 0.3s;
+    }
+
+    .nav-menu a:hover {
+        color: #035225;
+    }
+
+    .hamburger {
+        display: none;
+        cursor: pointer;
+    }
+
+    .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        transition: all 0.3s ease-in-out;
+        background-color: white;
+    }
+
+    .auth-buttons {
+        display: flex;
+        gap: 7px;
+        /* Space between buttons */
+    }
+
+    .cta-button {
+        padding: 15px 30px;
+        font-family: sans-serif;
+        font-weight: bold;
+        color: #e0e0e0;
+        background-color: var(--primary-color);
+        text-decoration: none;
+        border-radius: 5px;
+        transition: 0.3s;
+    }
+
+    .cta-button:hover {
+        background-color: #0f7a14;
+        /* Darker shade on hover */
+    }
+
+    .OR p {
+        padding-top: 15px;
+        color: #666;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 600;
+    }
+
+    .head-form-text {
+        text-align: center;
+        margin-top: 70px;
+        margin-left: 10px;
+        font-size: x-large;
+    }
+
+    .mission-vision {
+        padding: 60px 0;
+        background-color: #f3f3f3;
+    }
+
+    .section-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin-top: 20px;
+    }
+
+    .mission-box,
+    .vision-box {
+        background-color: #509768;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        border-left: 6px solid #09bc48;
+    }
+
+    .mission-box h2,
+    .vision-box h2 {
+        color: #fcfdfd;
+        font-family: Arial, sans-serif;
+        margin-bottom: 20px;
+        font-size: 1.8rem;
+    }
+
+    .mission-box p,
+    .vision-box p {
+        color: #fcfdfd;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        line-height: 1.6;
+    }
+
+    .read-more-1 {
+        display: inline-block;
+        padding: 10px 25px;
+        margin-top: 23px;
+        background-color: var(--primary-color);
+        font-family: Arial, sans-serif;
+        font-weight: 500;
+        color: #2e2e2e;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+    }
+
+    .read-more-2 {
+        display: inline-block;
+        padding: 10px 25px;
+        margin-top: 23px;
+        background-color: var(--primary-color);
+        font-family: Arial, sans-serif;
+        font-weight: 500;
+        color: #2e2e2e;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+    }
+
+    .read-more-1:hover,
+    .read-more-2:hover {
+        background-color: #0f7a14;
+        color: #e0e0e0;
+        transform: translateY(-2px);
+    }
+
+    .result-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .form-container,
+    .result-container {
+        background-color: #fff;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        width: 100%;
+        max-width: 400px;
+        margin-top: 20px;
+        box-sizing: border-box;
+    }
+
+    h2 {
+        text-align: center;
+        color: #333;
+        font-size: 1.5rem;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    label {
+        font-weight: bold;
+        color: #555;
+        font-size: 1rem;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 1rem;
+    }
+
+    .btn-next,
+    .btn-back {
+        width: 100%;
+        padding: 10px;
+        background-color: #4CAF50;
+        border: none;
+        border-radius: 4px;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 10px;
+        font-size: 1rem;
+    }
+
+    .btn-next:hover {
+        background-color: #45a049;
+    }
+
+    .btn-back {
+        background-color: #333;
+        text-align: left;
+    }
+
+    .btn-back:hover {
+        background-color: #69cc6e;
+    }
+
+    .result-container {
+        display: none;
+    }
+
+    .result-container p {
+        font-size: 1rem;
+        color: #333;
+        margin: 5px 0;
+        margin-left: 20px;
+    }
+
+    /* Responsive styling for smaller screens */
+    @media (max-width: 480px) {
+        h2 {
+            font-size: 1.2rem;
+        }
+
+        label,
+        input[type="text"],
+        .btn-next,
+        .btn-back,
+        .result-container p {
+            font-size: 0.9rem;
+        }
+
+        .form-container,
+        .result-container {
+            padding: 15px;
+        }
+    }
+
+    .mark-form {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        background-color: #f5f5f5;
+        padding: 10px;
+    }
+
+    .marksheet-container {
+        width: 100%;
+        max-width: 500px;
+        padding: 20px;
+        background: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+
+    .heading {
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+
+    .button {
+        width: 100%;
+        padding: 10px;
+        background-color: #5fdf7c;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+
+    .button:hover {
+        background-color: #218838;
+        font-size: 16px;
+        color: #fff;
+    }
+
+
+
+
+    .button-group {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        margin-top: 15px;
+        flex-wrap: wrap;
+    }
+
+
+
+
+    /* Media Queries */
+    @media (max-width: 600px) {
+        .heading {
+            font-size: 20px;
+        }
+
+        .button,
+        .secondary-button {
+            font-size: 14px;
+            padding: 8px;
+        }
+
+        .result-box {
+            font-size: 16px;
+        }
+    }
+
+    footer {
+        background-color: #333;
+        color: white;
+        padding: 40px 0 0;
+    }
+
+    .image-logo {
+        border-radius: 67px;
+        margin-top: 20px;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-evenly;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        padding-bottom: 30px;
+    }
+
+    .footer-section h3 {
+        color: var(--primary-color);
+        margin-bottom: 20px;
+        font-size: 1.2rem;
+    }
+
+    .footer-section ul {
+        list-style: none;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 10px;
+    }
+
+    .footer-section ul li a {
+        color: #fff;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    .footer-section ul li a:hover {
+        color: var(--primary-color);
+        padding-left: 5px;
+    }
+
+    .footer-section p {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    b {
+        color: #000;
+    }
+
+    .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 15px;
+        flex-direction: column;
+    }
+
+    .social-link-gap {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .social-links a {
+        color: white;
+        font-size: 20px;
+        transition: 0.3s;
+    }
+
+    .social-links a:hover {
+        color: var(--primary-color);
+    }
+
+    .container-last {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .footer-bottom {
+        background-color: #222;
+        padding: 20px 0;
+        color: white;
+        display: flex;
+        justify-content: space-around;
+    }
+
+
+    @media (max-width: 768px) {
+        .hamburger {
+            display: block;
+            color: #000;
+        }
+
+        .hamburger.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active .bar:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger.active .bar:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            transition: all 0.3s ease-in-out;
+            background-color: var(--secondary-color);
+        }
+
+        .nav-menu {
+            position: fixed;
+            left: -100%;
+            top: 70px;
+            gap: 0;
+            flex-direction: column;
+            background-color: var(--primary-color);
+            width: 100%;
+            text-align: center;
+            transition: 0.3s;
+            padding: 20px 0;
+        }
+
+        .nav-menu a {
+            color: #e0e0e0;
+        }
+
+        .nav-menu.active {
+            left: 0;
+        }
+
+        .nav-menu li {
+            margin: 16px 0;
+        }
+
+        .cta-button {
+            padding: 10px 10px;
+            margin: 0;
+            font-family: sans-serif;
+            font-weight: bold;
+            color: #e0e0e0;
+            background-color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .OR p {
+            padding-top: 10px;
+            color: #666;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 600;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1rem;
+        }
+
+        .section-wrapper {
+            grid-template-columns: 1fr;
+        }
+
+        .flex-sec {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+        .flex-img img {
+            width: 275px;
+            height: 100pxs;
+        }
+
+        .leader-content {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+
+        .leader-image {
+            max-width: 250px;
+            margin: 0 auto;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .footer-section {
+            padding: 20px;
+        }
+
+        .social-links {
+            justify-content: center;
+        }
+    }
+</style>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        background-color: #f4f4f9;
+    }
+
+    h2 {
+        font-size: 30px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .section {
+        display: none;
+    }
+
+    .section1 {
+        margin-top: 200px;
+
+
+        margin-bottom: 100px;
+        display: none;
+
+    }
+
+    .active {
+        display: block;
+    }
+
+    .active1 {
+        display: block;
+    }
+
+    table {
+        margin: 20px auto;
+        border-collapse: collapse;
+        width: 90%;
+    }
+
+    th,
+    td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+    }
+
+    th {
+        background-color: #f0f0f0;
+    }
+
+    input[type="number"] {
+        width: 60px;
+        text-align: center;
+    }
+
+    #examDropdown {
+        padding: 10px 20px;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: space-around;
+        margin: 20px;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 20px;
+        color: #e4e4e4;
+        background-color: #2dd651;
+        cursor: pointer;
+        border-radius: 12px;
+    }
+
+    .buttons button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    #totalSection {
+        margin-top: 20px;
+        font-weight: bold;
+    }
+</style>
+<style>
+    /* General Styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+    }
+
+    h1,
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    button {
+        background-color: #45a049;
+        color: white;
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: #388e3c;
+    }
+
+    table {
+        width: 90%;
+        border-collapse: collapse;
+        margin-top: 0;
+    }
+
+    th,
+    td {
+        padding: 10px;
+        text-align: center;
+        border: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f4f4f4;
+    }
+
+    input[type="number"] {
+        width: 60%;
+        padding: 5px;
+        text-align: center;
+    }
+
+    /* Section for layout control */
+    section {
+        display: none;
+    }
+
+    section.active {
+        display: block;
+    }
+
+
+    @media (max-width: 768px) {
+
+        /* Adjust table font size further */
+        table th,
+        table td {
+            font-size: 0.8rem;
+            padding: 6px;
+        }
+
+        td input[type="number"] {
+            width: 100%;
+            font-size: 1rem;
+        }
+
+        h1,
+        h2 {
+            display: flex;
+            align-items: center;
+        }
+
+        button {
+            align-items: center;
+            margin-left: 10px;
+        }
+
+        select {
+            margin-bottom: 20px;
+        }
+
+        #marksheetTable {
+            display: flex;
+            flex-direction: column;
+            overflow-x: scroll;
+            display: block;
+        }
+    }
+</style>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav-wrapper">
+                <a href="#" class="logo"><img style="color:#45a049;" src="../Assets/logo1.jpg" alt="" width="50px"
+                        height="50px"></a>
+                <ul class="nav-menu">
+                    <li><a href="../Home/Portal-Home copy.html">Home</a></li>
+                    <li><a href="../About Us/Portal-About copy.html">About Us</a></li>
+                    <li><a href="../Academics sec/Poartal-Acadmic copy.html">Academics</a></li>
+                    <li><a href="../Admission open/Portal-Admis copy.html">Exam Results</a></li>
+                    <li><a href="../Faculty/Portal-Faculty copy.html">Faculty</a></li>
+                    <li><a href="../Contact Us/Portal-Contact copy.html">Contact Us</a></li>
+                </ul>
+
+
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+        <!-- Teacher Portal Section -->
+        <div id="teacherPortal" class="section1 active1">
+            <h2>Generate Students Results</h2>
+            <button id="goToAcademic">Next</button>
+        </div>
+
+        <!-- Academic Section -->
+        <div id="academicPage" class="section1">
+            <h2>Exam MarkSheet</h2>
+            <select id="examDropdown">
+                <option value="" disabled selected>Select an Option</option>
+                <option value="midterm">Midterm</option>
+                <option value="prelim">Prelim</option>
+            </select>
+            <button id="generateMarksheet">Generate Marksheet</button>
+        </div>
+    
+        <!-- Marksheet Section -->
+        <div id="marksheetSection" class="section1">
+            <h1>Students Marksheet</h1>
+            <table id="marksheetTable">
+                <thead>
+                    <tr>
+                        <th>Student Name</th>
+                        <th>Roll No</th>
+                        <th>Physics<br>(85)</th>
+                        <th>Computer<br>(85)</th>
+                        <th>Mathematics<br>(100)</th>
+                        <th>Urdu<br>(100)</th>
+                        <th>English<br>(100)</th>
+                        <th>Islamiat<br>(50)</th>
+                        <th>Total Marks</th>
+                    </tr>
+                </thead>
+                <tbody id="studentRows">
+                    <!-- Dynamic rows will be added here -->
+                </tbody>
+            </table>
+            <div class="buttons">
+                <button id="addStudent">Add Student</button>
+                <button id="goBack">Go Back</button>
+                <button id="submitData">Submit</button>
+            </div>
+        </div>
+    
+        <!-- Firebase and Script Section -->
+        <script type="module">
+            // Firebase Configuration
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+            import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
+    
+            const firebaseConfig = {
+                apiKey: "AIzaSyC1ceXqudhewacM5B6bqRhzdPIaACs3WVs",
+                authDomain: "sgdc-s-t-m-r-admis.firebaseapp.com",
+                databaseURL: "https://sgdc-s-t-m-r-admis-default-rtdb.firebaseio.com",
+                projectId: "sgdc-s-t-m-r-admis",
+                storageBucket: "sgdc-s-t-m-r-admis.firebasestorage.app",
+                messagingSenderId: "707303969446",
+                appId: "1:707303969446:web:ab8111ffcf3a85a2359a67"
+            };
+    
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            const database = getDatabase(app);
+    
+            document.addEventListener("DOMContentLoaded", () => {
+                const sections = document.querySelectorAll(".section1");
+                const teacherPortal = document.getElementById("teacherPortal");
+                const academicPage = document.getElementById("academicPage");
+                const marksheetSection = document.getElementById("marksheetSection");
+    
+                const goToAcademic = document.getElementById("goToAcademic");
+                const generateMarksheet = document.getElementById("generateMarksheet");
+                const goBack = document.getElementById("goBack");
+                const submitDataButton = document.getElementById("submitData");
+                const addStudentButton = document.getElementById("addStudent");
+                const studentRows = document.getElementById("studentRows");
+    
+                const showSection = (section) => {
+                    sections.forEach((sec) => sec.classList.remove("active1"));
+                    section.classList.add("active1");
+                };
+    
+                goToAcademic.addEventListener("click", () => {
+                    showSection(academicPage);
+                });
+    
+                generateMarksheet.addEventListener("click", () => {
+                    showSection(marksheetSection);
+                });
+    
+                goBack.addEventListener("click", () => {
+                    showSection(academicPage);
+                });
+    
+                const addStudentRow = () => {
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+                        <td><input type="text" placeholder="Student Name" class="name"></td>
+                        <td><input type="text" placeholder="Roll No" class="rollNo"></td>
+                        <td><input type="number" placeholder="Physics" class="marks physics" value="0"></td>
+                        <td><input type="number" placeholder="Computer" class="marks computer" value="0"></td>
+                        <td><input type="number" placeholder="Mathematics" class="marks mathematics" value="0"></td>
+                        <td><input type="number" placeholder="Urdu" class="marks urdu" value="0"></td>
+                        <td><input type="number" placeholder="English" class="marks english" value="0"></td>
+                        <td><input type="number" placeholder="Islamiat" class="marks islamiat" value="0"></td>
+                        <td><span class="totalMarks">0</span></td>
+                    `;
+    
+                    const inputs = row.querySelectorAll(".marks");
+                    inputs.forEach((input) => {
+                        input.addEventListener("input", () => {
+                            const marks = Array.from(inputs).map((i) => parseInt(i.value) || 0);
+                            const total = marks.reduce((a, b) => a + b, 0);
+                            row.querySelector(".totalMarks").textContent = total;
+                        });
+                    });
+    
+                    studentRows.appendChild(row);
+                };
+    
+                addStudentButton.addEventListener("click", addStudentRow);
+    
+                submitDataButton.addEventListener("click", () => {
+                    const rows = studentRows.querySelectorAll("tr");
+                    const studentsRef = ref(database, 'students');
+    
+                    rows.forEach((row) => {
+                        const name = row.querySelector(".name").value;
+                        const rollNo = row.querySelector(".rollNo").value;
+                        const physics = parseInt(row.querySelector(".physics").value) || 0;
+                        const computer = parseInt(row.querySelector(".computer").value) || 0;
+                        const mathematics = parseInt(row.querySelector(".mathematics").value) || 0;
+                        const urdu = parseInt(row.querySelector(".urdu").value) || 0;
+                        const english = parseInt(row.querySelector(".english").value) || 0;
+                        const islamiat = parseInt(row.querySelector(".islamiat").value) || 0;
+                        const totalMarks = physics + computer + mathematics + urdu + english + islamiat;
+    
+                        const studentData = {
+                            name,
+                            rollNo,
+                            marks: { physics, computer, mathematics, urdu, english, islamiat, total: totalMarks }
+                        };
+    
+                        push(studentsRef, studentData).catch((error) => {
+                            alert("Failed to save data: " + error.message);
+                        });
+                    });
+    
+                    alert("Data saved successfully!");
+                    studentRows.innerHTML = ""; // Clear all rows after saving
+                    addStudentRow(); // Add one empty row
+                });
+    
+                // Add the first row on load
+                addStudentRow();
+    
+                showSection(teacherPortal);
+            });
+    </script>
+    
+
+    <footer class="footer">
+        <div class="footer-content container">
+            <img class="image-logo" style="color:#45a049;" src="../Assets/logo1.jpg" width="100px" height="100px">
+            <div class="footer-section">
+
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../About Us/Portal-About.html">About Us</a></li>
+                    <li><a href="../About Us/Portal-About.html">Events</a></li>
+                    <li><a href="../Contact Us/Portal-Contact.html">Meet to Principal</a></li>
+                    <li><a href="../Faculty/Portal-Faculty.html">Faculty Members</a></li>
+                    <li><a href="../Academics sec/Poartal-Acadmic.html">Academic Calendar</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Siraj-ud-Daulah Govt. Degree College (Morning) Road, Near
+                    City Center.</p>
+                <p><i class="fas fa-phone"></i> +1234567890</p>
+                <p><i class="fas fa-envelope"></i> info@sirajudullah.edu</p>
+
+                <div class="social-links footer-section">
+                    <div class="social-link-gap">
+                        <div>
+                            <h3>Social Links</h3>
+                        </div>
+                        <div>
+                            <ul>
+                                <a href="#"><i class="fab fa-facebook"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="footer-section">
+                <h3>Important Info</h3>
+                <ul>
+
+                    <li><a href="../Sign Up/signup.html">Students Portal</a></li>
+                    <li><a href="../Sign Up/signup.html">Teachers Portal</a></li>
+                    <li><a href="../Admission open/Portal-Admis.html">Admission Process</a></li>
+                    <li><a href="../Admission open/Portal-Admis.html">Mark Sheet</a></li>
+                    <li><a href="../Academics sec/Poartal-Acadmic.html">Model Papers</a></li>
+                    <li><a href="../Academics sec/Poartal-Acadmic.html">Exam Schedule</a></li>
+                    <li><a href="../Admission open/Portal-Admis.html">Results</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container container-last">
+                <div>
+                    <p>&copy; 2024 Siraj-ud-Daulah Govt. Degree College (Morning), All rights reserved. Developed by
+                        Faizyab Hussain.</p>
+                </div>
+                <div>
+                    <p>Privacy policy | Terms & Conditions</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector(".nav-menu");
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        });
+
+        document.querySelectorAll(".nav-menu a").forEach(n => n.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+        }));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty | Sirajudullah Govt. Degree College</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        box-sizing: border-box;
+    }
+
+    :root {
+        --primary-color: #4CAF50;
+        --secondary-color: #45a049;
+    }
+
+    /* header start */
+    .header {
+        background-color: rgb(250, 250, 250);
+        padding: 20px 0;
+        position: fixed;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        top: 0;
+        z-index: 100;
+    }
+
+    .container {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .nav-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 24px;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    .nav-menu {
+        display: flex;
+        list-style: none;
+    }
+
+    .nav-menu li {
+        margin-left: 30px;
+    }
+
+    .nav-menu a {
+        color: #4CAF50;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 600;
+        text-decoration: none;
+        font-size: 16px;
+        transition: 0.3s;
+    }
+
+    .nav-menu a:hover {
+        color: #035225;
+    }
+
+    .hamburger {
+        display: none;
+        cursor: pointer;
+    }
+
+    .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        transition: all 0.3s ease-in-out;
+        background-color: white;
+    }
+
+    .auth-buttons {
+        display: flex;
+        gap: 7px;
+        /* Space between buttons */
+    }
+
+    .cta-button {
+        padding: 15px 30px;
+        font-family: sans-serif;
+        font-weight: bold;
+        color: #e0e0e0;
+        background-color: var(--primary-color);
+        text-decoration: none;
+        border-radius: 5px;
+        transition: 0.3s;
+    }
+
+    .cta-button:hover {
+        background-color: #0f7a14;
+        /* Darker shade on hover */
+    }
+    .nav-menu a:hover {
+            color: #035225;
+            padding-top: 14px;
+            border-top: 1px solid #0a9111;
+        }
+
+    .OR p {
+        padding-top: 15px;
+        color: #666;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 600;
+    }
+
+    /* main content */
+    /* Base styling */
+    .our-field {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        background-color: #f4f4f4;
+    }
+
+    .container-fild {
+        max-width: 1200px;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 2rem;
+        text-align: center;
+        margin-top: 190px;
+    }
+
+    .fields {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    /* Card styling */
+    .field-card {
+        background-color: #fff;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        max-width: 280px;
+        text-align: left;
+        transition: transform 0.3s;
+    }
+
+    .field-card:hover {
+        transform: translateY(-10px);
+        background-color: #82e487;
+    }
+
+    .field-card p:hover {
+        color: #ffffff;
+    }
+
+    .field-card img {
+        width: 100%;
+        height: auto;
+    }
+
+    .img-fild {
+        border-left: 5px solid #0f7a14;
+        border-top: 5px solid #0f7a14;
+    }
+
+    .img-fild-comer {
+        border-right: 5px solid #0f7a14;
+        border-bottom: 5px solid #0f7a14;
+        transform: rotate(180deg);
+    }
+
+    .field-card {
+        padding-left: 15px;
+        padding-top: 15px;
+        padding-bottom: 10px;
+        padding-right: 15px;
+        margin-top: 80px;
+        margin-bottom: 40px;
+
+    }
+
+
+    .field-card h2 {
+        font-size: 1.5rem;
+        color: #333;
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .field-card p {
+        font-size: 0.9rem;
+        text-align: center;
+        color: #666;
+    }
+
+
+
+    .read-more-pre-eng {
+        display: inline-flex;
+        align-items: center;
+        padding: 10px 15px;
+        margin-top: 59px;
+        margin-left: 65px;
+        margin-bottom: 10px;
+        font-size: 0.9rem;
+        color: #ffffff;
+        background-color: #37b43d;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+    }
+
+    .read-more-pre-med {
+        display: inline-flex;
+        align-items: center;
+        padding: 10px 15px;
+        margin-top: 88px;
+        margin-left: 65px;
+        margin-bottom: 10px;
+        font-size: 0.9rem;
+        color: #ffffff;
+        background-color: #37b43d;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+    }
+
+    .read-more-com-scii {
+        display: inline-flex;
+        align-items: center;
+        padding: 10px 15px;
+        margin-top: 75px;
+        margin-left: 65px;
+        margin-bottom: 10px;
+        font-size: 0.9rem;
+        color: #ffffff;
+        background-color: #37b43d;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+    }
+
+    .read-more-comer {
+        display: inline-flex;
+        align-items: center;
+        padding: 10px 15px;
+        margin-top: 15px;
+        margin-left: 65px;
+        margin-bottom: 10px;
+        font-size: 0.9rem;
+        color: #ffffff;
+        background-color: #37b43d;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+    }
+
+    .field-card a:hover {
+        background-color: #0f7a14;
+    }
+
+    .field-card .read-more svg {
+        margin-left: 5px;
+    }
+
+    /* Responsive styling */
+    @media (max-width: 768px) {
+        .fields {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    /* footer start */
+
+    footer {
+        background-color: #333;
+        color: white;
+        padding: 40px 0 0;
+    }
+
+    .image-logo {
+        border-radius: 67px;
+        margin-top: 20px;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-evenly;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        padding-bottom: 30px;
+    }
+
+    .footer-section h3 {
+        color: var(--primary-color);
+        margin-bottom: 20px;
+        font-size: 1.2rem;
+    }
+
+    .footer-section ul {
+        list-style: none;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 10px;
+    }
+
+    .footer-section ul li a {
+        color: #fff;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    .footer-section ul li a:hover {
+        color: var(--primary-color);
+        padding-left: 5px;
+    }
+
+    .footer-section p {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    b {
+        color: #000;
+    }
+
+    .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 15px;
+        flex-direction: column;
+    }
+
+    .social-link-gap {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .social-links a {
+        color: white;
+        font-size: 20px;
+        transition: 0.3s;
+    }
+
+    .social-links a:hover {
+        color: var(--primary-color);
+    }
+
+    .container-last {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .footer-bottom {
+        background-color: #222;
+        padding: 20px 0;
+        color: white;
+        display: flex;
+        justify-content: space-around;
+    }
+
+
+    @media (max-width: 768px) {
+        .hamburger {
+            display: block;
+            color: #000;
+        }
+
+        .hamburger.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active .bar:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger.active .bar:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            transition: all 0.3s ease-in-out;
+            background-color: var(--secondary-color);
+        }
+
+        .nav-menu {
+            position: fixed;
+            left: -100%;
+            top: 70px;
+            gap: 0;
+            flex-direction: column;
+            background-color: var(--primary-color);
+            width: 100%;
+            text-align: center;
+            transition: 0.3s;
+            padding: 20px 0;
+        }
+
+        .nav-menu a {
+            color: #e0e0e0;
+        }
+
+        .nav-menu.active {
+            left: 0;
+        }
+
+        .nav-menu li {
+            margin: 16px 0;
+        }
+
+        .cta-button {
+            padding: 10px 10px;
+            margin: 0;
+            font-family: sans-serif;
+            font-weight: bold;
+            color: #e0e0e0;
+            background-color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .OR p {
+            padding-top: 10px;
+            color: #666;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 600;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1rem;
+        }
+
+        .section-wrapper {
+            grid-template-columns: 1fr;
+        }
+
+        .leader-content {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+
+        .leader-image {
+            max-width: 250px;
+            margin: 0 auto;
+        }
+
+        .footer-content {
+            grid-template-columns: 1fr;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .footer-section {
+            padding: 0 20px;
+        }
+
+        .social-links {
+            justify-content: center;
+        }
+    }
+</style>
+<style>
+    /* Responsive Styling for Mobile */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-section {
+        margin-bottom: 20px;
+    }
+
+    .social-links ul {
+        justify-content: center;
+    }
+
+    .container-last {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .footer-bottom {
+        padding: 15px 0;
+        font-size: 0.8rem;
+    }
+}
+</style>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav-wrapper">
+                <a href="#" class="logo"><img style="color:#45a049;" src="../Assets/logo1.jpg" alt="" width="50px"
+                        height="50px"></a>
+                        <ul class="nav-menu">
+                            <li><a href="../Home/Portal-Home copy.html">Home</a></li>
+                            <li><a href="../About Us/Portal-About copy.html">About Us</a></li>
+                            <li><a href="../Academics sec/Poartal-Acadmic copy.html" >Academics</a></li>
+                            <li><a href="../Admission open/Portal-Admis copy.html" >Exam Results</a></li>
+                            <li><a href="../Faculty/Portal-Faculty copy.html" >Faculty</a></li>
+                            <li><a href="../Contact Us/Portal-Contact copy.html" >Contact Us</a></li>
+                        </ul>
+
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="our-field">
+
+            <div class="container-field">
+                <div>
+                    <h1>Choose Your Field OF Study</h1>
+                </div>
+                <div class="fields">
+
+                    <!-- Pre-Engineering Card -->
+                    <div class="field-card">
+                        <img class="img-fild" src="../Assets/fildofpre-eng.jpg" alt="Pre-Engineering">
+                        <div class="content">
+                            <h2>Pre-Engineering</h2>
+                            <p> The Pre-Engineering program prepares students for engineering careers
+                                through core studies in mathematics, physics, and chemistry. Students are introduced to
+                                fields like Civil, Electrical, Mechanical, Aeronautical, Architectural, and Chemical
+                                Engineering, with each area providing specialized insights and skills. Telecom and Space
+                                Engineering are also included, reflecting the diversity of options in modern
+                                engineering. Combining theoretical knowledge with hands-on experience, this program
+                                builds a strong foundation for future studies or careers in engineering. </p>
+                            <a href="../Faculty/Departments of fild/Pre-engineer-department.html" target="_blank" class="read-more-pre-eng">Read More</a>
+                        </div>
+                    </div>
+
+                    <!-- Pre-Medical Card -->
+                    <div class="field-card">
+                        <img class="img-fild" src="../Assets/fildof-medimg.jpg" alt="Pre-Medical">
+                        <div class="content">
+                            <h2>Pre-Medical</h2>
+                            <p>The Pre-Medical program offers students a comprehensive foundation for
+                                careers in health sciences. Courses in biology, chemistry, and physics are complemented
+                                by specialized topics in areas such as physiotherapy, surgery, pharmacy, microbiology,
+                                and biochemistry. The curriculum also explores biotechnology and bioinformatics,
+                                bridging data and biology for medical research. With a mix of academics and practical
+                                labs, this program prepares students for medical school or allied health fields.</p>
+                            <a href="../Faculty/Departments of fild/Pre-Medical-department copy.html" target="_blank" class="read-more-pre-med">Read More</a>
+                        </div>
+                    </div>
+
+                    <!-- Computer Science Card -->
+                    <div class="field-card">
+                        <img class="img-fild" src="../Assets/fildOfcsimg.avif" alt="Computer Science">
+                        <div class="content">
+                            <h2>Computer Science</h2>
+                            <p>The Computer Science program builds essential scientific and
+                                analytical skills through courses in Physics, Computer Science, and Mathematics.
+                                Students learn programming languages, algorithms, and data structures, along with
+                                computer hardware and networking fundamentals. Physics and Mathematics support their
+                                technical knowledge, covering concepts like electricity and calculus. Through hands-on
+                                labs and projects, students gain a practical understanding of computing, preparing them
+                                for further studies or careers in the tech industry.</p>
+                            <a href="../Faculty/Departments of fild/Computer-Science-department copy.html" target="_blank" class="read-more-com-scii">Read More</a>
+                        </div>
+                    </div>
+
+                    <!-- Commerce Card -->
+                    <div class="field-card">
+                        <img class="img-fild-comer" src="../Assets/imgcomercenewpic.PNG" alt="Commerce">
+                        <div class="content">
+                            <h2>Commerce</h2>
+                            <p>The Commerce program provides foundational knowledge and practical
+                                skills in business and finance. The curriculum includes Accounting, Banking, and the
+                                Principles of Commerce, giving students insights into financial analysis, the workings
+                                of financial institutions, and market dynamics. Courses in Commercial Geography,
+                                Business Studies, Economics, and Statistics round out the program, offering a
+                                well-rounded education with a focus on real-world applications. The faculty emphasizes
+                                interactive learning through case studies, projects, and industry exposure, preparing
+                                students for various fields in commerce.</p>
+                            <a href="../Faculty/Departments of fild/Commerce-department copy.html" target="_blank" class="read-more-comer">Read More</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+   
+    <footer class="footer">
+        <div class="footer-content container">
+            <img class="image-logo" style="color:#45a049;"
+                src="../Assets/logo1.jpg" width="100px" height="100px">
+            <div class="footer-section">
+
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../About Us/Portal-About.html">About Us</a></li>
+                    <li><a href="../About Us/Portal-About.html">Events</a></li>
+                    <li><a href="../Contact Us/Portal-Contact.html">Meet to Principal</a></li>
+                    <li><a href="../Faculty/Portal-Faculty.html">Faculty Members</a></li>
+                    <li><a href="../Academics sec/Poartal-Acadmic.html">Academic Calendar</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Siraj-ud-Daulah Govt. Degree College (Morning) Road, Near
+                    City Center.</p>
+                <p><i class="fas fa-phone"></i> +1234567890</p>
+                <p><i class="fas fa-envelope"></i> info@sirajudullah.edu</p>
+
+                <div class="social-links footer-section">
+                    <div class="social-link-gap">
+                        <div>
+                            <h3>Social Links</h3>
+                        </div>
+                        <div>
+                            <ul>
+                                <a href="#"><i class="fab fa-facebook"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="footer-section">
+                <h3>Important Info</h3>
+                <ul>
+
+                    <li><a href="../Sign Up/signup.html">Students Portal</a></li>
+                    <li><a href="../Sign Up/signup.html">Teachers Portal</a></li>
+                    <li><a href="../Admission open/Portal-Admis.html">Admission Process</a></li>
+                    <li><a href="../Admission open/Portal-Admis.html">Mark Sheet</a></li>
+                    <li><a href="../Academics sec/Poartal-Acadmic.html">Model Papers</a></li>
+                    <li><a href="../Academics sec/Poartal-Acadmic.html">Exam Schedule</a></li>
+                    <li><a href="../Admission open/Portal-Admis.html">Results</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container container-last">
+                <div>
+                    <p>&copy; 2024 Siraj-ud-Daulah Govt. Degree College (Morning), All rights reserved. Developed by
+                        Faizyab Hussain.</p>
+                </div>
+                <div>
+                    <p>Privacy policy | Terms & Conditions</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector(".nav-menu");
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        });
+
+        document.querySelectorAll(".nav-menu a").forEach(n => n.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+        }));
+    </script>
+</body>
+
+</html>

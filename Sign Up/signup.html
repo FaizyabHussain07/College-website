@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="ur">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORTAL | Login/Signup</title>
+    <style>
+        /* General styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 600px;
+            background-color: #f4f4f4;
+        }
+
+        .container-port {
+            text-align: center;
+        }
+
+        #heading {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .portal-cont {
+            position: relative;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .portal-selection button {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #009688;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .portal-selection {
+            display: flex;
+            gap: 20px;
+            
+        }
+
+        .portal-selection button:hover {
+            background-color: #00796b;
+        }
+
+        .form-container {
+            display: none;
+            width: 400px;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+        }
+        .form-container h2{
+            margin-bottom: 10px;
+        }
+
+        .form-container.active {
+            display: flex;
+        }
+
+        input {
+            width: 100%;
+            max-width: 300px;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        input.error {
+            border: 2px solid red;
+        }
+.but{
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+       .cta-button {
+            
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #009688;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #00796b;
+        }
+
+        .parag {
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-weight: 700;
+            font-size: 20px;
+            cursor: pointer;
+            color: #777;
+        }
+
+       
+
+    </style>
+     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            box-sizing: border-box;
+        }
+
+        .main-body {
+            background-color: #36bd63;
+        }
+
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #45a049;
+        }
+
+        .header {
+            background-color: rgb(250, 250, 250);
+            padding: 20px 0;
+            position: fixed;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin-left: 30px;
+        }
+
+        .nav-menu a {
+            color: #4CAF50;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #035225;
+            padding-top: 14px;
+            border-top: 1px solid #0a9111;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            transition: all 0.3s ease-in-out;
+            background-color: white;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 7px;
+            /* Space between buttons */
+        }
+
+        .cta-button {
+            padding: 10px 20px;
+            font-family: sans-serif;
+            align-items: center;
+            font-weight: 600;
+            color: #e0e0e0;
+            background-color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #0f7a14;
+            /* Darker shade on hover */
+        }
+
+        .OR p {
+            padding-top: 15px;
+            color: #666;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 600;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 0 0;
+        }
+
+        .image-logo {
+            border-radius: 67px;
+            margin-top: 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-evenly;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+
+        .footer-section p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        b {
+            color: #000;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            flex-direction: column;
+        }
+
+        .social-link-gap {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 20px;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .container-last {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer-bottom {
+            background-color: #222;
+            padding: 20px 0;
+            color: white;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+                color: #000;
+            }
+
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .bar {
+                display: block;
+                width: 25px;
+                height: 3px;
+                margin: 5px auto;
+                transition: all 0.3s ease-in-out;
+                background-color: var(--secondary-color);
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                gap: 0;
+                flex-direction: column;
+                background-color: var(--primary-color);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                padding: 20px 0;
+            }
+
+            .nav-menu a {
+                color: #e0e0e0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 16px 0;
+            }
+
+            .cta-button {
+                padding: 10px 10px;
+                margin: 0;
+                font-family: sans-serif;
+                font-weight: bold;
+                color: #e0e0e0;
+                background-color: var(--primary-color);
+                text-decoration: none;
+                border-radius: 5px;
+                transition: 0.3s;
+            }
+
+            .OR p {
+                padding-top: 10px;
+                color: #666;
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: 600;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .section-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .flex-sec {
+                display: flex;
+                flex-direction: column-reverse;
+            }
+
+            .flex-img img {
+                width: 275px;
+                height: 100pxs;
+            }
+
+            .leader-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .leader-image {
+                max-width: 250px;
+                margin: 0 auto;
+            }
+
+            .footer-content {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .footer-section {
+                padding: 20px;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <script type="module">
+        // Firebase Initialization
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+        import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBRJv2YdKzM7JMNv9797bO-DtDTJDm0QR4",
+            authDomain: "sgdc-sign-up-page.firebaseapp.com",
+            projectId: "sgdc-sign-up-page",
+            storageBucket: "sgdc-sign-up-page.appspot.com",
+            messagingSenderId: "822003759310",
+            appId: "1:822003759310:web:acb1d21c8aae386082f89f"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const database = getDatabase(app);
+
+        // Sign Up Function (Create User)
+        async function signUpUser(event, role) {
+            event.preventDefault();
+            const email = document.getElementById(role + "Email").value;
+            const password = document.getElementById(role + "Password").value;
+            const name = document.getElementById(role + "Name").value;
+
+            try {
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                const user = userCredential.user;
+                console.log(role + " signed up: ", user);
+
+                // Save user data to Realtime Database
+                await set(ref(database, 'users/' + user.uid), {
+                    name: name,
+                    email: email,
+                    role: role
+                });
+
+                alert('Signup Successfully!');
+                // Redirect to appropriate page
+                if (role === "student") {
+                    window.location.href = "../Home/Portal-Home.html";
+                } else if (role === "teacher") {
+                    window.location.href = "../Home/Portal-Home copy.html";
+                }
+            } catch (error) {
+                console.error("Error signing up: ", error);
+                alert(error.message);
+            }
+        }
+
+        // Login Function (Sign In)
+        async function signInUser(event, role) {
+            event.preventDefault();
+            const email = document.getElementById(role + "Email").value;
+            const password = document.getElementById(role + "Password").value;
+
+            try {
+                const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                const user = userCredential.user;
+                console.log(role + " signed in: ", user);
+
+                // Fetch user data from Realtime Database
+                const dbRef = ref(database);
+                const snapshot = await get(child(dbRef, `users/${user.uid}`));
+                if (snapshot.exists()) {
+                    const userData = snapshot.val();
+                    console.log("User Data: ", userData);
+                    alert(`Welcome back, ${userData.name}!`);
+                } else {
+                    console.error("No data available for this user!");
+                }
+
+                // Redirect to appropriate page
+                if (role === "student") {
+                    window.location.href = "../Home/Portal-Home.html";
+                } else if (role === "teacher") {
+                    window.location.href = "../Home/Portal-Home copy.html";
+                }
+            } catch (error) {
+                console.error("Error signing in: ", error);
+                alert("Invalid credentials or user not found!");
+            }
+        }
+
+        // Add event listeners for Sign Up and Login buttons
+        document.getElementById("studentSignUpButton").addEventListener("click", (e) => signUpUser(e, "student"));
+        document.getElementById("teacherSignUpButton").addEventListener("click", (e) => signUpUser(e, "teacher"));
+        document.getElementById("studentLoginButton").addEventListener("click", (e) => signInUser(e, "student"));
+        document.getElementById("teacherLoginButton").addEventListener("click", (e) => signInUser(e, "teacher"));
+    </script>
+
+    <header class="header">
+        <div class="container">
+            <nav class="nav-wrapper">
+                <a href="#" class="logo"><img style="color:#45a049;" src="../Assets/logo1.jpg" alt="" width="50px"
+                        height="50px"></a>
+                <ul class="nav-menu">
+                    <li><a href="../Home/Homepage.html" target="_blank">Home</a></li>
+                    <li><a href="../About Us/About.html" target="_blank">About Us</a></li>
+                    <li><a href="../Academics sec/Academics.html" target="_blank">Academics</a></li>
+                    <li><a href="../Admission open/Admissions.html" target="_blank">Admissions</a></li>
+                    <li><a href="../Faculty/faculty.html" target="_blank">Faculty</a></li>
+                    <li><a href="../Contact Us/Contact.html" target="_blank">Contact Us</a></li>
+                </ul>
+                
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="section">
+        <div class="container-port">
+            <h1 id="heading">PORTAL SELECTION</h1>
+            <div class="portal-cont">
+                <div class="portal-selection" id="portalSelection">
+                    <button id="studentButton">Student</button>
+                    <button id="teacherButton">Teacher</button>
+                </div>
+
+                <!-- Student Form -->
+                <div class="form-container" id="studentForm">
+                    <span class="close" id="closeStudentForm">X</span>
+                    <h2>Student Login/Signup</h2>
+                    <input type="text" placeholder="Name" id="studentName" required>
+                    <input type="email" placeholder="Email" id="studentEmail" required>
+                    <input type="password" placeholder="Password" id="studentPassword" required>
+                    <div class="but">
+                    <button class="cta-button" id="studentSignUpButton">Sign Up</button>
+                    <button class="cta-button" id="studentLoginButton">Login</button>
+                </div>
+                </div>
+
+                <!-- Teacher Form -->
+                <div class="form-container" id="teacherForm">
+                    <span class="close" id="closeTeacherForm">X</span>
+                    <h2>Teacher Login/Signup</h2>
+                    <input type="text" placeholder="Name" id="teacherName" required>
+                    <input type="email" placeholder="Email" id="teacherEmail" required>
+                    <input type="password" placeholder="Password" id="teacherPassword" required>
+                    <div class="but">
+                    <button class="cta-button" id="teacherSignUpButton">Sign Up</button>
+                    <button class="cta-button" id="teacherLoginButton">Login</button>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Handle form visibility
+        document.getElementById("studentButton").addEventListener("click", function () {
+            document.getElementById("studentForm").classList.add("active");
+            document.getElementById("teacherForm").classList.remove("active");
+            document.getElementById("portalSelection").style.display = 'none';
+            document.getElementById("heading").style.display = 'none';
+        });
+
+        document.getElementById("teacherButton").addEventListener("click", function () {
+            document.getElementById("teacherForm").classList.add("active");
+            document.getElementById("studentForm").classList.remove("active");
+            document.getElementById("portalSelection").style.display = 'none';
+            document.getElementById("heading").style.display = 'none';
+        });
+
+        document.getElementById("closeStudentForm").addEventListener("click", function () {
+            document.getElementById("studentForm").classList.remove("active");
+            document.getElementById("portalSelection").style.display = 'block';
+            document.getElementById("heading").style.display = 'block';
+        });
+
+        document.getElementById("closeTeacherForm").addEventListener("click", function () {
+            document.getElementById("teacherForm").classList.remove("active");
+            document.getElementById("portalSelection").style.display = 'block';
+            document.getElementById("heading").style.display = 'block';
+        });
+    </script>
+
+<footer class="footer">
+    <div class="footer-content container">
+        <img class="image-logo" style="color:#45a049;"
+            src="../Assets/logo1.jpg"  alt="" width="100px" height="100px">
+        <div class="footer-section">
+
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="../About Us/Portal-About.html">About Us</a></li>
+                <li><a href="../About Us/Portal-About.html">Events</a></li>
+                <li><a href="../Contact Us/Portal-Contact.html">Meet to Principal</a></li>
+                <li><a href="../Faculty/Portal-Faculty.html">Faculty Members</a></li>
+                <li><a href="../Academics sec/Poartal-Acadmic.html">Academic Calendar</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Contact Info</h3>
+            <p><i class="fas fa-map-marker-alt"></i> Sirajudullah Govt. Degree College Road, Near
+                City Center.</p>
+            <p><i class="fas fa-phone"></i> +1234567890</p>
+            <p><i class="fas fa-envelope"></i> info@sirajudullah.edu</p>
+
+            <div class="social-links footer-section">
+                <div class="social-link-gap">
+                    <div>
+                        <h3>Social Links</h3>
+                    </div>
+                    <div>
+                        <ul>
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="footer-section">
+            <h3>Important Info</h3>
+            <ul>
+
+                <li><a href="../Sign Up/signup.html">Students Portal</a></li>
+                <li><a href="../Sign Up/signup.html">Teachers Portal</a></li>
+                <li><a href="../Admission open/Portal-Admis.html">Admission Process</a></li>
+                <li><a href="../Admission open/Portal-Admis.html">Mark Sheet</a></li>
+                <li><a href="../Academics sec/Poartal-Acadmic.html">Model Papers</a></li>
+                <li><a href="../Academics sec/Poartal-Acadmic.html">Exam Schedule</a></li>
+                <li><a href="../Admission open/Portal-Admis.html">Results</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container container-last">
+            <div>
+                <p>&copy; 2024 Sirajud-du-lah Govt. Degree (Morning) College, All rights reserved. Developed by
+                    Faizyab Hussain.</p>
+            </div>
+            <div>
+                <p>Privacy policy | Terms & Conditions</p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script>
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav-menu");
+
+    hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+    });
+
+    document.querySelectorAll(".nav-menu a").forEach(n => n.addEventListener("click", () => {
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
+    }));
+</script>
+
+</body>
+</html>

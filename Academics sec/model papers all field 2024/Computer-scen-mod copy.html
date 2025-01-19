@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Papers of Computer Science</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        box-sizing: border-box;
+    }
+    .nav-menu a:hover {
+            color: #035225;
+            padding-top: 14px;
+            border-top: 1px solid #0a9111;
+        }
+    :root {
+        --primary-color: #4CAF50;
+        --secondary-color: #45a049;
+    }
+
+    /* header start */
+    .header {
+        background-color: rgb(250, 250, 250);
+        padding: 20px 0;
+        position: fixed;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        top: 0;
+        z-index: 100;
+    }
+
+    .container {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .nav-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 24px;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    .nav-menu {
+        display: flex;
+        list-style: none;
+    }
+
+    .nav-menu li {
+        margin-left: 30px;
+    }
+
+    .nav-menu a {
+        color: #4CAF50;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 600;
+        text-decoration: none;
+        font-size: 16px;
+        transition: 0.3s;
+    }
+
+    .nav-menu a:hover {
+        color: #035225;
+    }
+
+    .hamburger {
+        display: none;
+        cursor: pointer;
+    }
+
+    .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        transition: all 0.3s ease-in-out;
+        background-color: white;
+    }
+
+    .auth-buttons {
+        display: flex;
+        gap: 7px;
+        /* Space between buttons */
+    }
+
+    .cta-button {
+        padding: 15px 30px;
+        font-family: sans-serif;
+        font-weight: bold;
+        color: #e0e0e0;
+        background-color: var(--primary-color);
+        text-decoration: none;
+        border-radius: 5px;
+        transition: 0.3s;
+    }
+
+    .cta-button:hover {
+        background-color: #0f7a14;
+        /* Darker shade on hover */
+    }
+
+    .OR p {
+        padding-top: 15px;
+        color: #666;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 600;
+    }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            box-sizing: border-box;
+        }
+        .container-mode {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            margin-top: 100px;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .subject-box {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.3s ease-in-out;
+        }
+        .subject-box:hover {
+            transform: scale(1.02);
+        }
+        .subject-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+        .pdf-icon {
+            font-size: 30px;
+            color: #007BFF;
+            cursor: pointer;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+        .pdf-icon:hover {
+            color: #0056b3;
+            transform: rotate(10deg) scale(1.2);
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .subject-box {
+                flex-direction: column;
+                text-align: center;
+            }
+            .pdf-icon {
+                margin-top: 10px;
+            }
+        }
+    
+
+    /* footer start */
+
+    footer {
+        background-color: #333;
+        color: white;
+        padding: 40px 0 0;
+    }
+
+    .image-logo {
+        border-radius: 67px;
+        margin-top: 20px;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-evenly;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        padding-bottom: 30px;
+    }
+
+    .footer-section h3 {
+        color: var(--primary-color);
+        margin-bottom: 20px;
+        font-size: 1.2rem;
+    }
+
+    .footer-section ul {
+        list-style: none;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 10px;
+    }
+
+    .footer-section ul li a {
+        color: #fff;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    .footer-section ul li a:hover {
+        color: var(--primary-color);
+        padding-left: 5px;
+    }
+
+    .footer-section p {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    b {
+        color: #000;
+    }
+
+    .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 15px;
+        flex-direction: column;
+    }
+
+    .social-link-gap {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .social-links a {
+        color: white;
+        font-size: 20px;
+        transition: 0.3s;
+    }
+
+    .social-links a:hover {
+        color: var(--primary-color);
+    }
+
+    .container-last {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .footer-bottom {
+        background-color: #222;
+        padding: 20px 0;
+        color: white;
+        display: flex;
+        justify-content: space-around;
+    }
+
+
+    @media (max-width: 768px) {
+        .hamburger {
+            display: block;
+            color: #000;
+        }
+
+        .hamburger.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active .bar:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger.active .bar:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            transition: all 0.3s ease-in-out;
+            background-color: var(--secondary-color);
+        }
+
+        .nav-menu {
+            position: fixed;
+            left: -100%;
+            top: 70px;
+            gap: 0;
+            flex-direction: column;
+            background-color: var(--primary-color);
+            width: 100%;
+            text-align: center;
+            transition: 0.3s;
+            padding: 20px 0;
+        }
+
+        .nav-menu a {
+            color: #e0e0e0;
+        }
+
+        .nav-menu.active {
+            left: 0;
+        }
+
+        .nav-menu li {
+            margin: 16px 0;
+        }
+
+        .cta-button {
+            padding: 10px 10px;
+            margin: 0;
+            font-family: sans-serif;
+            font-weight: bold;
+            color: #e0e0e0;
+            background-color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .OR p {
+            padding-top: 10px;
+            color: #666;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 600;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1rem;
+        }
+
+        .section-wrapper {
+            grid-template-columns: 1fr;
+        }
+
+        .leader-content {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+
+        .leader-image {
+            max-width: 250px;
+            margin: 0 auto;
+        }
+
+        .footer-content {
+            grid-template-columns: 1fr;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .footer-section {
+            padding: 0 20px;
+        }
+
+        .social-links {
+            justify-content: center;
+        }
+    }
+</style>
+<style>
+    /* Responsive Styling for Mobile */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-section {
+        margin-bottom: 20px;
+    }
+
+    .social-links ul {
+        justify-content: center;
+    }
+
+    .container-last {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .footer-bottom {
+        padding: 15px 0;
+        font-size: 0.8rem;
+    }
+}
+</style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav-wrapper">
+                <a href="#" class="logo"><img style="color:#45a049;" src="../../Assets/logo1.jpg" alt="" width="50px"
+                        height="50px"></a>
+                <ul class="nav-menu">
+                    <li><a href="../../Home/Portal-Home.html">Home</a></li>
+                    <li><a href="../../About Us/Portal-About.html">About Us</a></li>
+                    <li><a href="../../Academics sec/Poartal-Acadmic.html">Academics</a></li>
+                    <li><a href="../../Admission open/Portal-Admis.html" >Admissions</a></li>
+                    <li><a href="../../Faculty/Portal-Faculty.html">Faculty</a></li>
+                    <li><a href="../../Contact Us/Portal-Contact.html" >Contact Us</a></li>
+                </ul>
+
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container-mode">
+
+        <h1>Model Papers of All Field</h1>
+
+        <div class="subject-box">
+            <span class="subject-title">All Subject Papers</span>
+            <i class="fas fa-file-pdf pdf-icon" onclick="openPdf('Model-Paper-for-Examinations-2024-All.pdf')" title="Open All Subject Papers PDF"></i>
+        </div>
+<br>
+       
+    </div>
+
+    <script>
+        function openPdf(fileName) {
+            window.open(fileName, '_blank');
+        }
+    </script>
+
+<footer class="footer">
+    <div class="footer-content container">
+        <img class="image-logo" style="color:#45a049;"
+            src="../../Assets/logo1.jpg" width="100px" height="100px">
+        <div class="footer-section">
+
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="../About Us/Portal-About.html">About Us</a></li>
+                <li><a href="../About Us/Portal-About.html">Events</a></li>
+                <li><a href="../Contact Us/Portal-Contact.html">Meet to Principal</a></li>
+                <li><a href="../Faculty/Portal-Faculty.html">Faculty Members</a></li>
+                <li><a href="../Academics sec/Poartal-Acadmic.html">Academic Calendar</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Contact Info</h3>
+            <p><i class="fas fa-map-marker-alt"></i> Sirajudullah Govt. Degree College Road, Near
+                City Center.</p>
+            <p><i class="fas fa-phone"></i> +1234567890</p>
+            <p><i class="fas fa-envelope"></i> info@sirajudullah.edu</p>
+
+            <div class="social-links footer-section">
+                <div class="social-link-gap">
+                    <div>
+                        <h3>Social Links</h3>
+                    </div>
+                    <div>
+                        <ul>
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="footer-section">
+            <h3>Important Info</h3>
+            <ul>
+
+                <li><a href="../Sign Up/signup.html">Students Portal</a></li>
+                <li><a href="../Sign Up/signup.html">Teachers Portal</a></li>
+                <li><a href="../Admission open/Portal-Admis.html">Admission Process</a></li>
+                <li><a href="../Admission open/Portal-Admis.html">Mark Sheet</a></li>
+                <li><a href="../Academics sec/Poartal-Acadmic.html">Model Papers</a></li>
+                <li><a href="../Academics sec/Poartal-Acadmic.html">Exam Schedule</a></li>
+                <li><a href="../Admission open/Portal-Admis.html">Results</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container container-last">
+            <div>
+                <p>&copy; 2024 Sirajud-du-lah Govt. Degree (Morning) College, All rights reserved. Developed by
+                    Faizyab Hussain.</p>
+            </div>
+            <div>
+                <p>Privacy policy | Terms & Conditions</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav-menu");
+
+    hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+    });
+
+    document.querySelectorAll(".nav-menu a").forEach(n => n.addEventListener("click", () => {
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
+    }));
+</script>
+
+
+</body>
+</html>

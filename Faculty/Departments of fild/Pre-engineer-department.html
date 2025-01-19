@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Departpent OF Pre-Engineering Teachers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<style>
+body {
+            background: #e5e4e4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #45a049;
+        }
+        .nav-menu a:hover {
+            color: #035225;
+            padding-top: 14px;
+            border-top: 1px solid #0a9111;
+        }
+        .header {
+            background-color: rgb(250, 250, 250);
+            padding: 20px 0;
+            position: fixed;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin-left: 30px;
+        }
+
+        .nav-menu a {
+            color: #4CAF50;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #035225;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            transition: all 0.3s ease-in-out;
+            background-color: white;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 7px;
+            /* Space between buttons */
+        }
+
+        .cta-button {
+            padding: 15px 30px;
+            font-family: sans-serif;
+            font-weight: bold;
+            color: #e0e0e0;
+            background-color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #0f7a14;
+            /* Darker shade on hover */
+        }
+
+        .OR p {
+            padding-top: 15px;
+            color: #666;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 600;
+        }
+
+        /* main content start */
+
+        .container-teach{
+            margin-left: 30px;
+            margin-right: 30px;
+        }
+        .leadership-section {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            color: #000000;
+            padding-top: 25px;
+            padding-bottom: 15px;
+            border-radius: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: x-large;
+            font-weight: 500;
+            margin-top: 100px;
+            margin-bottom: 15px;
+            text-align: center;
+        } 
+
+        .section-title-teach {
+            color: #e0e0e0;
+            background-color: #50ba71;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-radius: 20px;
+            font-size: 2.5rem;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 500;
+            margin-bottom: 30px;
+            text-align: center;
+        } 
+
+        
+
+        .leader-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .leader-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .leader-name {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .leader-position {
+            color: #666;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .leader-qualifications {
+            color: #444;
+            margin-bottom: 15px;
+        }
+
+        .leader-grade {
+            color: #666;
+            font-style: italic;
+        }
+
+        .flex-sec {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .none-flex {
+            align-items: start;
+            justify-content: left;
+        }
+
+        .flex-img {
+            border-radius: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 0 0;
+        }
+
+        .image-logo {
+            border-radius: 67px;
+            margin-top: 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-evenly;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+
+        .footer-section p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        b {
+            color: #000;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            flex-direction: column;
+        }
+
+        .social-link-gap {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 20px;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .container-last {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer-bottom {
+            background-color: #222;
+            padding: 20px 0;
+            color: white;
+            display: flex;
+            justify-content: space-around;
+              }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+                color: #000;
+            }
+
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .bar {
+                display: block;
+                width: 25px;
+                height: 3px;
+                margin: 5px auto;
+                transition: all 0.3s ease-in-out;
+                background-color: var(--secondary-color);
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                gap: 0;
+                flex-direction: column;
+                background-color: var(--primary-color);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                padding: 20px 0;
+            }
+
+            .nav-menu a {
+                color: #e0e0e0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 16px 0;
+            }
+
+            .cta-button {
+                padding: 10px 10px;
+                margin: 0;
+                font-family: sans-serif;
+                font-weight: bold;
+                color: #e0e0e0;
+                background-color: var(--primary-color);
+                text-decoration: none;
+                border-radius: 5px;
+                transition: 0.3s;
+            }
+
+            .OR p {
+                padding-top: 10px;
+                color: #666;
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: 600;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-section {
+                padding: 0 20px;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+        } 
+</style>
+<style>
+
+@media (max-width: 768px) {
+    
+}
+
+/* Faculty Section */
+.leadership-section {
+    margin: 2rem 0;
+}
+.section-title-teach{
+    padding:15px;
+}
+
+.flex-sec {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-img img {
+    border-radius: 50%;
+    max-width: 200px;
+    width: 100%;
+}
+
+.none-flex {
+    flex: 1;
+}
+
+@media (max-width: 768px) {
+    .leader-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .none-flex {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Footer */
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 1rem;
+    padding: 1rem 0;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-section ul {
+        padding: 0;
+    }
+}
+</style>
+<body>
+    
+<header class="header">
+    <div class="container">
+        <nav class="nav-wrapper">
+            <a href="#" class="logo"><img style="color:#45a049;"
+                    src="../../Assets/logo1.jpg" width="50px" height="50px"></a>
+                    <ul class="nav-menu">
+                        <li><a href="../../Home/Portal-Home.html">Home</a></li>
+                        <li><a href="../../About Us/Portal-About.html">About Us</a></li>
+                        <li><a href="../../Academics sec/Poartal-Acadmic.html">Academics</a></li>
+                        <li><a href="../../Admission open/Portal-Admis.html" >Admissions</a></li>
+                        <li><a href="../../Faculty/Portal-Faculty.html">Faculty</a></li>
+                        <li><a href="../../Contact Us/Portal-Contact.html" >Contact Us</a></li>
+                    </ul>
+            
+
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="container-teach">
+        <div class="section-title">
+            <h2>
+                Faculty Of Pre-Engineering
+            </h2>
+        </div>
+        <section class="leadership-section">
+            <h2 class="section-title-teach">Department of Physics</h2>
+
+            <div class="leader-card">
+                <div class="flex-sec">
+                    <div class="none-flex">
+                        <h3 class="leader-name">Prof. Ahmed Saqib</h3>
+                        <h4 class="leader-position"></h4>
+                        <h4 class="leader-position">Associate Professor</h4>
+                        <h4 class="leader-position">H.O.D Pyhsics Department</h4>
+                        <p class="leader-qualifications">
+                            <strong>Qualification :</strong>
+                            <br><br>
+                            M.Sc. Pyhsics
+                        </p>
+                        
+                    </div>
+                    <div class="flex-img">
+                        <img src="../../Assets/AHMEDSIR.jpg" width="200px" height="200px" style="border-radius: 100px;" alt="leader img">
+                    </div>
+                </div>
+            </div>
+
+            <div class="leader-card">
+                <div class="flex-sec">
+                    <div class="none-flex">
+                        <h3 class="leader-name">Prof. Syed Hammod ur Rehman</h3>
+                        <h4 class="leader-position"></h4>
+                        <h4 class="leader-position">Assistant Professor </h4>
+                        <p class="leader-qualifications">
+                            <strong>Qualification :</strong>
+                            <br><br>
+                            M.Sc. Physics
+                        </p>
+                        
+                    </div>
+                    <div class="flex-img">
+                        <img src="../../Assets/hamudrehman.jpg" width="200px" height="200px" style="border-radius: 100px;" alt="leader img">
+                    </div>
+                </div>
+            </div>
+
+            <div class="leader-card">
+                <div class="flex-sec">
+                    <div class="none-flex">
+                        <h3 class="leader-name">Prof. Muhammed Amir Khan</h3>
+                        <h4 class="leader-position"></h4>
+                        <h4 class="leader-position">Assistant Professor </h4>
+                        <p class="leader-qualifications">
+                            <strong>Qualification :</strong>
+                            <br><br>
+                            M.Sc. Physics
+                        </p>
+                        
+                    </div>
+                    <div class="flex-img">
+                        <img src="../../Assets/amir.jpg" width="200px" height="200px" style="border-radius: 100px;" alt="leader img">
+                    </div>
+                </div>
+            </div>
+
+            <div class="leader-card">
+                <div class="flex-sec">
+                    <div class="none-flex">
+                        <h3 class="leader-name">Dr. Mirza Salman Baig</h3>
+                        <h4 class="leader-position"></h4>
+                        <h4 class="leader-position">Lecturer</h4>
+                        <p class="leader-qualifications">
+                            <strong>Qualification :</strong>
+                            <br><br>
+                            Ph.D Applied Pyhsics
+                        </p>
+                        
+                    </div>
+                    <div class="flex-img">
+                        <img src="../../Assets/mirza.jpg" width="200px" height="200px" style="border-radius: 100px;" alt="leader img">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="leadership-section">
+            <h2 class="section-title-teach">Department of Chemistry</h2>
+
+            <div class="leader-card">
+                <div class="flex-sec">
+                    <div class="none-flex">
+                        <h3 class="leader-name">Prof. Syed Tufail Hashmi</h3>
+                        <h4 class="leader-position"></h4>
+                        <h4 class="leader-position">Assistant Professor</h4>
+                        <h4 class="leader-position">H.O.D Chemistry Department</h4>
+                        <p class="leader-qualifications">
+                            <strong>Qualification :</strong>
+                            <br><br>
+                            M.Sc. Chemistry
+                        </p>
+                        
+                    </div>
+                    <div class="flex-img">
+                        <img src="../../Assets/tufil.jpg" width="200px" height="200px" style="border-radius: 100px;" alt="leader img">
+                    </div>
+                </div>
+            </div>
+
+            <div class="leader-card">
+                <div class="flex-sec">
+                    <div class="none-flex">
+                        <h3 class="leader-name">Prof. Viqar Haider</h3>
+                        <h4 class="leader-position"></h4>
+                        <h4 class="leader-position">Assistant Professor </h4>
+                        <p class="leader-qualifications">
+                            <strong>Qualification :</strong>
+                            <br><br>
+                            M.Phill Chemistry
+                        </p>
+                        
+                    </div>
+                    <div class="flex-img">
+                        <img src="../../Assets/viqar.jpg" width="200px" height="200px" style="border-radius: 100px;" alt="leader img">
+                    </div>
+                </div>
+            </div>
+
+            <div class="leader-card">
+                <div class="flex-sec">
+                    <div class="none-flex">
+                        <h3 class="leader-name">Dr. M.Kawish Iqbal</h3>
+                        <h4 class="leader-position"></h4>
+                        <h4 class="leader-position">Lecturer</h4>
+                        <p class="leader-qualifications">
+                            <strong>Qualification :</strong>
+                            <br><br>
+                            Ph.D Chemistry
+                        </p>
+                        
+                    </div>
+                    <div class="flex-img">
+                        <img src="../../Assets/kawih.jpg" width="200px" height="200px" style="border-radius: 100px;" alt="leader img">
+                    </div>
+                </div>
+            </div>
+
+    </section>
+
+    <section class="leadership-section">
+        <h2 class="section-title-teach">Department of Mathematics</h2>
+
+        <div class="leader-card">
+            <div class="flex-sec">
+                <div class="none-flex">
+                    <h3 class="leader-name">Prof. Umer Faruq</h3>
+                    <h4 class="leader-position"></h4>
+                    <h4 class="leader-position">Assistant Professor</h4>
+                    <h4 class="leader-position">H.O.D Mathematics Department</h4>
+                    <p class="leader-qualifications">
+                        <strong>Qualification :</strong>
+                        <br><br>
+                        M.S. Mathematics
+                    </p>
+                    
+                </div>
+                <div class="flex-img">
+                    <img src="../../Assets/umr.jpg" width="200px" height="200px" style="border-radius: 100px;" alt="leader img">
+                </div>
+            </div>
+        </div>
+
+        
+    </section>
+
+    <section class="leadership-section">
+        <h2 class="section-title-teach">Department of Urdu</h2>
+
+        <div class="leader-card">
+            <div class="flex-sec">
+                <div class="none-flex">
+                    <h3 class="leader-name">Dr. Irfan Shah</h3>
+                    <h4 class="leader-position"></h4>
+                    <h4 class="leader-position">Assistant Professor</h4>
+                    <h4 class="leader-position">H.O.D Urdu Department</h4>
+                    <p class="leader-qualifications">
+                        <strong>Qualification :</strong>
+                        <br><br>
+                        Ph.D. Urdu
+                    </p>
+                    
+                </div>
+                <div class="flex-img">
+                    <img src="../../Assets/irf.jpg" width="200px" height="200px" style="border-radius: 100px;" alt="leader img">
+                </div>
+            </div>
+        </div>
+
+        <div class="leader-card">
+            <div class="flex-sec">
+                <div class="none-flex">
+                    <h3 class="leader-name">Prof. Anas Khan</h3>
+                    <h4 class="leader-position"></h4>
+                    <h4 class="leader-position">Lecturer</h4>
+                    <h4 class="leader-position"></h4>
+                    <p class="leader-qualifications">
+                        <strong>Qualification :</strong>
+                        <br><br>
+                        M.A. Urdu
+                    </p>
+                    
+                </div>
+                <div class="flex-img">
+                    <img src="../../Assets/ans.jpg" width="200px" height="200px" style="border-radius: 100px;" alt="leader img">
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+    <section class="leadership-section">
+        <h2 class="section-title-teach">Department of English</h2>
+
+        <div class="leader-card">
+            <div class="flex-sec">
+                <div class="none-flex">
+                    <h3 class="leader-name">Prof. Mudassir Jalal</h3>
+                    <h4 class="leader-position"></h4>
+                    <h4 class="leader-position">Assistant Professor</h4>
+                    <h4 class="leader-position">H.O.D English Department</h4>
+                    <p class="leader-qualifications">
+                        <strong>Qualification :</strong>
+                        <br><br>
+                        M.A. English
+                    </p>
+                    
+                </div>
+                <div class="flex-img">
+                    <img src="../../Assets/muds.JPG" width="200px" height="200px" style="border-radius: 100px;" alt="leader img">
+                </div>
+            </div>
+        </div>
+
+        <div class="leader-card">
+            <div class="flex-sec">
+                <div class="none-flex">
+                    <h3 class="leader-name">Prof. M.Asif</h3>
+                    <h4 class="leader-position"></h4>
+                    <h4 class="leader-position">Assistant Professor</h4>
+                    <h4 class="leader-position"></h4>
+                    <p class="leader-qualifications">
+                        <strong>Qualification :</strong>
+                        <br><br>
+                        M.A. English
+                    </p>
+                    
+                </div>
+                <div class="flex-img">
+                    <img src="../../Assets/asif.JPG" width="200px" height="200px" style="border-radius: 100px;" alt="leader img">
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer-content container">
+        <img class="image-logo" style="color:#45a049;"
+            src="../../Assets/logo1.jpg" width="100px" height="100px">
+        <div class="footer-section">
+
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="../About Us/Portal-About.html">About Us</a></li>
+                <li><a href="../About Us/Portal-About.html">Events</a></li>
+                <li><a href="../Contact Us/Portal-Contact.html">Meet to Principal</a></li>
+                <li><a href="../Faculty/Portal-Faculty.html">Faculty Members</a></li>
+                <li><a href="../Academics sec/Poartal-Acadmic.html">Academic Calendar</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Contact Info</h3>
+            <p><i class="fas fa-map-marker-alt"></i> Sirajudullah Govt. Degree College Road, Near
+                City Center.</p>
+            <p><i class="fas fa-phone"></i> +1234567890</p>
+            <p><i class="fas fa-envelope"></i> info@sirajudullah.edu</p>
+
+            <div class="social-links footer-section">
+                <div class="social-link-gap">
+                    <div>
+                        <h3>Social Links</h3>
+                    </div>
+                    <div>
+                        <ul>
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="footer-section">
+            <h3>Important Info</h3>
+            <ul>
+
+                <li><a href="../Sign Up/signup.html">Students Portal</a></li>
+                <li><a href="../Sign Up/signup.html">Teachers Portal</a></li>
+                <li><a href="../Admission open/Portal-Admis.html">Admission Process</a></li>
+                <li><a href="../Admission open/Portal-Admis.html">Mark Sheet</a></li>
+                <li><a href="../Academics sec/Poartal-Acadmic.html">Model Papers</a></li>
+                <li><a href="../Academics sec/Poartal-Acadmic.html">Exam Schedule</a></li>
+                <li><a href="../Admission open/Portal-Admis.html">Results</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container container-last">
+            <div>
+                <p>&copy; 2024 Sirajud-du-lah Govt. Degree (Morning) College, All rights reserved. Developed by
+                    Faizyab Hussain.</p>
+            </div>
+            <div>
+                <p>Privacy policy | Terms & Conditions</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav-menu");
+
+    hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+    });
+
+    document.querySelectorAll(".nav-menu li a").forEach(n => n.addEventListener("click", () => {
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
+    }));
+</script>
+</body>
+
+</html>

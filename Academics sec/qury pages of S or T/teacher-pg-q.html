@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teacher Chat</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 500px;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .container input{
+  width: 95%;
+}
+
+    h2, h3 {
+      text-align: center;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      font-weight: 550;
+      font-size: 16px;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .chat-container {
+      display: none;
+    }
+
+    .messages {
+      height: 300px;
+      overflow-y: auto;
+      border: 1px solid #ddd;
+      padding: 10px;
+      background-color: #f9f9f9;
+    }
+
+    .input-message {
+      display: flex;
+      margin-top: 10px;
+    }
+
+    .input-message input {
+      flex: 1;
+      padding: 10px;
+    }
+
+    .input-message button {
+      margin-left: 5px;
+      border-radius: 3px 20px 20px 3px;
+      width: 20%;
+    }
+
+    .logout-button {
+      background-color: #f44336;
+      width: 100%;
+    }
+
+    .logout-button:hover {
+      background-color: #e53935;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    
+    <!-- Teacher Sign Up -->
+    <div id="teacherSignUp" style="display:block;">
+      <h2>Teacher Sign Up</h2>
+      <input type="text" id="signUpTeacherName" placeholder="Enter your name">
+      <input type="text" id="signUpTeacherSubject" placeholder="Enter your subject">
+      <button id="signUpTeacherButton">Sign Up</button>
+      <button id="goToLoginButton">Already have an account? Login</button>
+    </div>
+
+    <!-- Teacher Login -->
+    <div id="teacherLogin" style="display: none;">
+      <h2>Teacher Login</h2>
+      <input type="text" id="loginTeacherName" placeholder="Enter your name">
+      <button id="loginTeacherButton">Login</button>
+      <button id="goToSignUpButton">Go Back to Sign Up</button>
+    </div>
+
+    <!-- Chat Section -->
+    <div id="teacherChat" class="chat-container" style="display: none;">
+      <h3>Chat with Student</h3>
+      <label for="studentSelect">Select a Student:</label>
+      <select id="studentSelect">
+        <option value="" disabled selected>Select a student</option>
+      </select>
+      <button id="loadChat">Load Chat</button>
+      <div class="messages" id="messages"></div>
+      <div class="input-message">
+        <input type="text" id="teacherMessageInput" placeholder="Type your message">
+        <button id="sendTeacherMessage">Send</button>
+      </div>
+      <button id="logoutTeacher" class="logout-button">Log out</button>
+    </div>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+    import { getDatabase, ref, set, push, onValue, get, child } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCnik1_NXGXZq-_I5gMXfbCI8kDTSnVMd4",
+      authDomain: "sgdc-t-s-chat-box.firebaseapp.com",
+      projectId: "sgdc-t-s-chat-box",
+      storageBucket: "sgdc-t-s-chat-box.firebasestorage.app",
+      messagingSenderId: "986789921862",
+      appId: "1:986789921862:web:b7797246412368176d3647"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    // DOM Elements
+    const teacherSignUp = document.getElementById("teacherSignUp");
+    const teacherLogin = document.getElementById("teacherLogin");
+    const teacherChat = document.getElementById("teacherChat");
+    const studentSelect = document.getElementById("studentSelect");
+    const messagesDiv = document.getElementById("messages");
+    const teacherMessageInput = document.getElementById("teacherMessageInput");
+
+    let currentTeacher = null;
+
+    // Sign Up Button Event
+    document.getElementById("signUpTeacherButton").addEventListener("click", async () => {
+      const name = document.getElementById("signUpTeacherName").value.trim();
+      const subject = document.getElementById("signUpTeacherSubject").value.trim();
+
+      if (!name || !subject) {
+        alert("Please fill in all fields!");
+        return;
+      }
+
+      const teacherRef = ref(db, `teachers/${name}`);
+      const teacherExists = await get(child(ref(db), `teachers/${name}`));
+
+      if (teacherExists.exists()) {
+        alert("Teacher already exists. Please log in.");
+      } else {
+        set(teacherRef, { name, subject });
+        alert("Sign Up successful!");
+        showTeacherChat();
+      }
+    });
+
+    // Login Button Event
+    document.getElementById("loginTeacherButton").addEventListener("click", async () => {
+      const name = document.getElementById("loginTeacherName").value.trim();
+
+      if (!name) {
+        alert("Please enter your name!");
+        return;
+      }
+
+      const teacherRef = ref(db, `teachers/${name}`);
+      const teacherData = await get(teacherRef);
+
+      if (teacherData.exists()) {
+        currentTeacher = teacherData.val();
+        localStorage.setItem("currentTeacher", JSON.stringify(currentTeacher));
+        alert(`Welcome ${currentTeacher.name}`);
+        showTeacherChat();
+      } else {
+        alert("Teacher not found. Please sign up.");
+      }
+    });
+
+    // Go to Login from Sign Up
+    document.getElementById("goToLoginButton").addEventListener("click", () => {
+      const signUpName = document.getElementById("signUpTeacherName").value.trim();
+      const signUpSubject = document.getElementById("signUpTeacherSubject").value.trim();
+
+      if (!signUpName || !signUpSubject) {
+        alert("Please fill out the fields.");
+      } else {
+        teacherSignUp.style.display = "none";
+        teacherLogin.style.display = "block";
+      }
+    });
+
+    // Go Back to Sign Up from Login
+    document.getElementById("goToSignUpButton").addEventListener("click", () => {
+      const loginName = document.getElementById("loginTeacherName").value.trim();
+       
+        teacherLogin.style.display = "none";
+        teacherSignUp.style.display = "block";
+      
+    });
+
+    // Show Teacher Chat
+    function showTeacherChat() {
+      teacherSignUp.style.display = "none";
+      teacherLogin.style.display = "none";
+      teacherChat.style.display = "block";
+      loadStudents();
+    }
+
+    // Load Students
+    const loadStudents = () => {
+      const studentsRef = ref(db, "students");
+      onValue(studentsRef, (snapshot) => {
+        const students = snapshot.val();
+        studentSelect.innerHTML = Object.entries(students || {})
+          .map(
+            ([key, value]) => `<option value="${key}">${value.name} (Roll No: ${value.rollNo})</option>`
+          )
+          .join("");
+      });
+    };
+
+    // Load Chat
+    const loadChat = (studentRollNo) => {
+      const chatRef = ref(db, `chats/${studentRollNo}_${currentTeacher.name}`);
+      onValue(chatRef, (snapshot) => {
+        const chatMessages = snapshot.val() || {};
+        messagesDiv.innerHTML = Object.values(chatMessages)
+          .map((msg) => `<div><strong>${msg.sender}:</strong> ${msg.message}</div>`)
+          .join("");
+      });
+    };
+
+    document.getElementById("loadChat").addEventListener("click", () => {
+      const studentRollNo = studentSelect.value;
+      if (studentRollNo) {
+        loadChat(studentRollNo);
+      } else {
+        alert("Please select a student!");
+      }
+    });
+
+    // Send Message
+    document.getElementById("sendTeacherMessage").addEventListener("click", () => {
+      const message = teacherMessageInput.value.trim();
+      const studentRollNo = studentSelect.value;
+
+      if (message && studentRollNo) {
+        const chatRef = ref(db, `chats/${studentRollNo}_${currentTeacher.name}`);
+        push(chatRef, {
+          sender: currentTeacher.name,
+          message,
+          role: "teacher",
+          timestamp: Date.now(),
+        });
+        teacherMessageInput.value = "";
+      } else {
+        alert("Please select a student and type a message!");
+      }
+    });
+
+    // Logout Button
+    document.getElementById("logoutTeacher").addEventListener("click", () => {
+      localStorage.removeItem("currentTeacher");
+      currentTeacher = null;
+      teacherChat.style.display = "none";
+      teacherLogin.style.display = "block"; // Show login page
+    });
+
+    // Initialize
+    window.onload = () => {
+      const savedTeacher = JSON.parse(localStorage.getItem("currentTeacher"));
+      if (savedTeacher) {
+        currentTeacher = savedTeacher;
+        showTeacherChat();
+      } else {
+        teacherSignUp.style.display = "block"; // Show sign-up page if no teacher in localStorage
+        teacherLogin.style.display = "none"; 
+      }
+    };
+  </script>
+</body>
+
+
+</html>
+
